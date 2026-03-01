@@ -18,12 +18,14 @@
   "reload_style_on_change": true,
 
   "include": [
-    "~/.config/waybar/modules/update.jsonc",
-    "~/.config/waybar/modules/powermenu.jsonc",
-    "~/.config/waybar/modules/wireplumber.jsonc",
-    "~/.config/waybar/modules/update.jsonc",
-    "~/.config/waybar/modules/notification.jsonc",
-    "~/.config/waybar/modules/clock.jsonc",
+    "./modules/update.jsonc",
+    "./modules/powermenu.jsonc",
+    "./modules/wireplumber.jsonc",
+    "./modules/update.jsonc",
+    "./modules/notification.jsonc",
+    "./modules/clock.jsonc",
+	"./modules/network.jsonc",
+    "./modules/idle_inhibitor.jsonc",
   ],
 
   "modules-left": [
@@ -38,8 +40,9 @@
 
   "modules-right": [
 	  "tray",
-	  "custom/network",
+	  "network",
 	  "custom/notification",
+	  "idle_inhibitor",
 	  "custom/powermenu",
   ],
 }

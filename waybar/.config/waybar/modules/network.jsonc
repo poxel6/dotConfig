@@ -1,5 +1,5 @@
 {
-	"custom/network": {
+	"network": {
 		"interface": "wlp2s0",
 		"format": "{}",
 		"format-wifi": "{essid} ({signalStrength}%) ",
