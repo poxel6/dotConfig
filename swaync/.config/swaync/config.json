@@ -20,7 +20,7 @@
     "timeout-critical": 0,
     "fit-to-screen": false,
     "control-center-width": 400,
-    "control-center-height": 1027,
+    "control-center-height": 1000,
     "notification-window-width": 400,
     "keyboard-shortcuts": true,
     "image-visibility": "when available",
@@ -67,24 +67,20 @@
                     "command": "pactl set-sink-mute @DEFAULT_SINK@ toggle"
                 },
                 {
-                    "label": "",
-                    "command": "~/.config/hypr/scripts/LockScreen.sh"
+                    "label": "󰤄",
+                    "command": "systemctl suspend"
                 },
                 {
-                    "label": "",
-                    "command": "pactl set-sink-mute @DEFAULT_SINK@ toggle"
-                },
-                 {
                     "label": "󰌾",
-                    "command": "systemctl suspend && pidof hyprlock || hyprlock -q"
+                    "command": "pidof hyprlock || hyprlock -q"
                 },
                 {
                     "label": "󰜉",
-                    "command": "systemctl reboot"
+                    "command": "reboot"
                 },
                 {
                     "label": "󰐥",
-                    "command": "systemctl poweroff"
+                    "command": "shutdown now"
                 }
             ]
         }
