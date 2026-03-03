@@ -10,14 +10,16 @@
 # Output #0, matroska, to 'recording.mkv':
 
 CODEC=libx265
-DIR=$HOME/Videos/recordings/$(date '+%Y_%m_%d')
-mkdir -p "$DIR"
-NAME="$DIR/recording_$(date '+%Hh%Mm%Ss')"
+TIME=$(date '+%Hh%Mm%Ss')
+DATE=$(date '+%Y_%m_%d')
+NAME=recording_$TIME
+DIR=$HOME/Videos/recordings/$DATE
 FPS=60
 PRESET=fast
 CRF=18
 MONITOR="DP-2"
 
+mkdir -p "$DIR"
 echo $NAME
 
 notification () {
@@ -27,6 +29,21 @@ notification () {
 	local title="Recording:"
 	notify-send --app-name=$app_name --urgency=$urgency --icon=$icon "$@"
 }
+
+recording_base() {
+	wf-recorder \
+		-r $FPS \
+		-p crf=$CRF \
+		-p qcomp=0.8 \
+		-p qdiff=4 \
+		-p qpmin=3 \
+		-p qpmax=7 \
+		-p bframes=4 \
+		-p ip_ratio=0.71 \
+		--output=$MONITOR \
+		--audio \
+		--file $DIR/$NAME.mp4
+	}
 
 record_region() {
 	notification "Regional Recording Started"
@@ -38,19 +55,10 @@ record_fullscreen() {
 	recording_base
 }
 
-recording_base() {
-wf-recorder \
-	-r $FPS \
-	-p crf=$CRF \
-	-p qcomp=0.8 \
-	-p qdiff=4 \
-	-p qpmin=3 \
-	-p qpmax=7 \
-	-p bframes=4 \
-	-p ip_ratio=0.71 \
-	--output=$MONITOR \
-	--audio \
-	-f $NAME.mp4
+record_custom_name () {
+	NAME=$(rofi -i -dmenu)
+	notification "Recording with Name: $NAME Started"
+	recording_base
 }
 
 stop_recording () {
@@ -67,7 +75,7 @@ stop_recording () {
 if pgrep -x "wf-recorder" > /dev/null; then
 	stop_recording
 else
-	user_choice=$(printf "Start Recording\nRecord a Region" | rofi -dmenu)
+	user_choice=$(printf "Start Recording\nRecord a Region\nRecord with Custom name" | rofi -dmenu)
 
 	echo "User choice: $user_choice"
 
@@ -77,6 +85,9 @@ else
 			;;
 		"Record a Region")
 			record_region
+			;;
+		"Record with Custom name")
+			record_custom_name
 			;;
 		*)
 			;;
