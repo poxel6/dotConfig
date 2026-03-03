@@ -20,11 +20,21 @@ MONITOR="DP-2"
 
 echo $NAME
 
+notification () {
+	local app_name="Video Recording" 
+	local icon="audio-headphones-symbolic" 
+	local urgency="low"
+	local title="Recording:"
+	notify-send --app-name=$app_name --urgency=$urgency --icon=$icon "$@"
+}
+
 record_region() {
+	notification "Regional Recording Started"
 	recording_base -g "$(slurp)"
 }
 
 record_fullscreen() {
+	notification "Recording Started"
 	recording_base
 }
 
@@ -44,12 +54,12 @@ wf-recorder \
 }
 
 stop_recording () {
+	notification "Recording Stopped"
 	wf_pids=$(pgrep -x wf-recorder)
 	if [ -n "$wf_pids" ]; then
 		for pid in $wf_pids; do
 			kill -15 $pid || true 
 		done
-		notify-send -a "Video Recording" -n "audio-headphones-symbolic" -u low -i "audio-headphones-symbolic" "Recording:" "stopped recording"
 	fi
 }
 
