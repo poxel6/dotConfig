@@ -9,31 +9,28 @@
 # aq=1:1.00
 # Output #0, matroska, to 'recording.mkv':
 
-CODEC=libx264
+CODEC=libx265
 DIR=$HOME/Videos/recordings/$(date '+%Y_%m_%d')
 mkdir -p "$DIR"
 NAME="$DIR/recording_$(date '+%Hh%Mm%Ss')"
-FPS=30
+FPS=60
 PRESET=fast
 CRF=18
+MONITOR="DP-2"
 
 echo $NAME
 
-region() {
-	$BASE -g "$(slurp)"
+record_region() {
+	recording_base -g "$(slurp)"
 }
 
-fullscreen() {
-	$BASE
+record_fullscreen() {
+	recording_base
 }
 
-audio() {
-	$BASE --audio
-}
-
+recording_base() {
 wf-recorder \
 	-r $FPS \
-	--audio \
 	-p crf=$CRF \
 	-p qcomp=0.8 \
 	-p qdiff=4 \
@@ -41,4 +38,37 @@ wf-recorder \
 	-p qpmax=7 \
 	-p bframes=4 \
 	-p ip_ratio=0.71 \
+	--output=$MONITOR \
+	--audio \
 	-f $NAME.mp4
+}
+
+stop_recording () {
+	wf_pids=$(pgrep -x wf-recorder)
+	if [ -n "$wf_pids" ]; then
+		for pid in $wf_pids; do
+			kill -15 $pid || true 
+		done
+		notify-send -a "Video Recording" -n "audio-headphones-symbolic" -u low -i "audio-headphones-symbolic" "Recording:" "stopped recording"
+	fi
+}
+
+# Check if music is already playing
+if pgrep -x "wf-recorder" > /dev/null; then
+	stop_recording
+else
+	user_choice=$(printf "Start Recording\nRecord a Region" | rofi -dmenu)
+
+	echo "User choice: $user_choice"
+
+	case "$user_choice" in
+		"Start Recording")
+			record_fullscreen
+			;;
+		"Record a Region")
+			record_region
+			;;
+		*)
+			;;
+	esac
+fi
