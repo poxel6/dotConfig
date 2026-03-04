@@ -1,0 +1,9 @@
+
+{
+  "custom/recorder": {
+	"format": " {}",
+    "on-click": "$HOME/.local/share/bin/record",
+	"tooltip": true,
+	"tooltip-format": "start recording",
+  },
+}

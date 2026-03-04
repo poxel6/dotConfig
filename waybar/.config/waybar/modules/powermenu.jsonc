@@ -1,8 +1,0 @@
-{
-  "custom/powermenu": {
-    "format": "<big>󰐥</big>",
-	"on-click": "kitty --app-id=custom-fastfetch sh -c 'fastfetch --logo-type builtin --logo arch2 --logo-padding 0 && read'",
-
-    "tooltip": false,
-  },
-}

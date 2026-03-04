@@ -41,8 +41,7 @@
   "modules-right": [
 	  "tray",
 	  "network",
-	  "custom/notification",
 	  "idle_inhibitor",
-	  "custom/powermenu",
+	  "custom/notification",
   ],
 }

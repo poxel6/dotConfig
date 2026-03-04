@@ -23,8 +23,8 @@ tooltip {
 #workspaces button.active {
   background: @wk-act-bg;
   color: @purple;
-  margin: 0 3px;
-  padding: 0 5px;
+  /* margin: 0 3px; */
+  /* padding: 0 5px; */
 }
 
 #workspaces button.urgent {
@@ -34,33 +34,54 @@ tooltip {
 }
 
 #workspaces button:hover {
-  background: @wb-hvr-bg;
-  color: @wb-hvr-fg;
-  animation: ws_hover 20s ease-in-out 1;
-  transition: all 0.3s cubic-bezier(0.55, -0.68, 0.48, 1.682);
+  color: @wb-hvr-bg;
+  background: @wb-hvr-fg;
+  opacity: 0.8;
+  border-radius: 30px;
+  animation: ws_hover 2s ease-in-out 1;
+  transition: all 0.5s cubic-bezier(0.55, -0.68, 0.48, 1.682);
 }
 
 #clock,
-#idle_inhibitor,
 #memory,
 #mpris,
 #network,
-#custom-notifications
 #pulseaudio,
 #wireplumber,
 #wireplumber.muted,
-#tray,
-#workspaces,
-#custom-powermenu,
 #custom-update,
-#custom-notification {
+#tray,
+#workspaces {
   color: @main-fg;
   background: @main-bg;
-  border-radius: 10px;
+  border-radius: 15px;
   opacity: 1;
   min-width: 35px;
   padding: 2px 10px;
   margin: 4px 5px 0 5px;
+}
+
+#idle_inhibitor,
+#custom-powermenu,
+#custom-notification {
+  color: @main-fg;
+  background: @main-bg;
+  opacity: 1;
+  min-width: 35px;
+}
+
+#idle_inhibitor {
+  min-width: 35px;
+  border-radius: 15px 0 0 15px;
+  padding: 0 5px 0 10px;
+  margin: 4px 0 0 10px;
+}
+
+#custom-notification {
+  min-width: 35px;
+  border-radius: 0 15px 15px 0;
+  padding: 0 10px 0 5px;
+  margin: 4px 10px 0 0;
 }
 
 #clock {
@@ -68,4 +89,7 @@ tooltip {
 }
 #wireplumber {
 	color: @yellow;
+}
+#custom-update{
+	color: @red;
 }

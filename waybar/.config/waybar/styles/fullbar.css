@@ -2,8 +2,6 @@
   font-family: "InterVariable", "ComicShannsNerdFont";
   font-size: 16px;
   min-height: 10px;
-  padding: 0 1px;
-  margin: 0;
 }
 
 window#waybar {
