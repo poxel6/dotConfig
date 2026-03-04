@@ -1,11 +1,43 @@
-style=$(echo -e "fullbar\nisland" | rofi -dmenu)
+#!/usr/bin/env bash
 
-rm $XDG_CONFIG_HOME/waybar/config.jsonc
-rm $XDG_CONFIG_HOME/waybar/style.css
-ln -s $XDG_CONFIG_HOME/waybar/"$style"_config.jsonc $XDG_CONFIG_HOME/waybar/config.jsonc
+wbDir=$XDG_CONFIG_HOME/waybar
+change_style () {
+	style=$(ls ./styles/ | sed "s|\.css||g" | rofi -i -dmenu)
+	unlink $wbDir/config.jsonc
+	unlink $wbDir/style.css
+	ln -s $wbDir/"$style"_config.jsonc $wbDir/config.jsonc
 
-echo "@import \"theme.css\";" > $XDG_CONFIG_HOME/waybar/style.css
-echo "@import \"./styles/$style.css\";" >> $XDG_CONFIG_HOME/waybar/style.css
+	echo "@import \"theme.css\";" > $wbDir/style.css
+	echo "@import \"./styles/$style.css\";" >> $wbDir/style.css
+	update_waybar
+}
 
-killall waybar >/dev/null 2>&1
-setsid uwsm app -- /usr/bin/waybar >/dev/null 2>&1 & disown
+change_theme() {
+	theme=$(ls ./themes/ | sed "s|\.css||g" | rofi -i -dmenu)
+	unlink $wbDir/theme.css
+	ln -s $wbDir/themes/$theme.css theme.css
+	update_waybar
+}
+
+update_waybar() {
+	if pgrep -x "waybar" > /dev/null; then
+		killall waybar >/dev/null 2>&1
+		setsid uwsm app -- /usr/bin/waybar >/dev/null 2>&1 & disown
+	else
+		setsid uwsm app -- /usr/bin/waybar >/dev/null 2>&1 & disown
+	fi
+}
+
+user_choice=$(printf "Change Style\nChange Theme" | rofi -dmenu)
+echo "User choice: $user_choice"
+case "$user_choice" in
+	"Change Theme")
+		change_theme
+		;;
+	"Change Style")
+		change_style
+		;;
+	*)
+		;;
+esac
+
