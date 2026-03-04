@@ -1,21 +1,25 @@
 #!/usr/bin/env bash
 
-wbDir=$XDG_CONFIG_HOME/waybar
+wbDir=$HOME/.config/waybar
 change_style () {
-	style=$(ls ./styles/ | sed "s|\.css||g" | rofi -i -dmenu)
-	unlink $wbDir/config.jsonc
+	style=$(ls $wbDir/styles/ | sed "s|\.css||g" | rofi -i -dmenu)
 	unlink $wbDir/style.css
-	ln -s $wbDir/"$style"_config.jsonc $wbDir/config.jsonc
-
 	echo "@import \"theme.css\";" > $wbDir/style.css
 	echo "@import \"./styles/$style.css\";" >> $wbDir/style.css
 	update_waybar
 }
 
+change_config() {
+	config=$(ls $wbDir/configs/ | sed "s|\.jsonc||g" | rofi -i -dmenu)
+	unlink $wbDir/config.jsonc
+	ln -s $wbDir/configs/"$config".jsonc $wbDir/config.jsonc
+	update_waybar
+}
+
 change_theme() {
-	theme=$(ls ./themes/ | sed "s|\.css||g" | rofi -i -dmenu)
+	theme=$(ls $wbDir/themes/ | sed "s|\.css||g" | rofi -i -dmenu)
 	unlink $wbDir/theme.css
-	ln -s $wbDir/themes/$theme.css theme.css
+	ln -s $wbDir/themes/$theme.css $wbDir/theme.css
 	update_waybar
 }
 
@@ -28,7 +32,7 @@ update_waybar() {
 	fi
 }
 
-user_choice=$(printf "Change Style\nChange Theme" | rofi -dmenu)
+user_choice=$(printf "Change Config\nChange Style\nChange Theme" | rofi -dmenu)
 echo "User choice: $user_choice"
 case "$user_choice" in
 	"Change Theme")
@@ -36,6 +40,9 @@ case "$user_choice" in
 		;;
 	"Change Style")
 		change_style
+		;;
+	"Change Config")
+		change_config
 		;;
 	*)
 		;;
