@@ -3,6 +3,7 @@
 # Variables
 mDIR="$HOME/Music/"
 plDIR="$mDIR/Playlists"
+volume=75
 
 notification() {
 	notify-send -a Music -n audio-headphones-symbolic -u low -i audio-headphones-symbolic "Now Playing:" "$@"
@@ -51,7 +52,7 @@ play_local_music() {
 	for (( i=0; i<"${#filenames[@]}"; ++i )); do
 		if [ "${filenames[$i]}" = "$choice" ]; then
 			notification "$choice"
-			mpv --playlist-start="$i" --loop-playlist --vid=no  "${local_music[@]}"
+			mpv --volume=$volume --playlist-start="$i" --loop-playlist --vid=no  "${local_music[@]}"
 			break
 		fi
 	done
@@ -59,7 +60,7 @@ play_local_music() {
 
 shuffle_local_music() {
 	notification "Shuffle Play local music"
-	mpv --shuffle --loop-playlist --vid=no "$mDIR"
+	mpv --volume=$volume --shuffle --loop-playlist --vid=no "$mDIR"
 }
 
 play_online_music() {
@@ -75,7 +76,7 @@ play_online_music() {
 
 	notification "$choice"
 
-	mpv --shuffle --vid=no "$link" # Play the selected online music using mpv
+	mpv --volume=$volume --shuffle --vid=no "$link" # Play the selected online music using mpv
 }
 
 play_playlist() {
@@ -87,7 +88,7 @@ play_playlist() {
 	for (( i=0; i<"${#playlists[@]}"; ++i )); do
 		if [ $(basename "${playlists[$i]}") = "$choice" ]; then
 			notification "$choice"
-			mpv --loop-playlist --vid=no "$plDIR/$choice"
+			mpv --volume=$volume --loop-playlist --vid=no "$plDIR/$choice"
 			break
 		fi
 	done
