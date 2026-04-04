@@ -9,7 +9,7 @@
 # aq=1:1.00
 # Output #0, matroska, to 'recording.mkv':
 
-CODEC=libx265
+CODEC=hevc_vulkan
 TIME=$(date '+%Hh%Mm%Ss')
 DATE=$(date '+%Y_%m_%d')
 NAME=recording_$TIME
