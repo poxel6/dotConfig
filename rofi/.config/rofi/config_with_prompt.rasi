@@ -1,0 +1,80 @@
+// @import "~/.cache/hellwal/rofi.rasi"
+@import "./theme.rasi"
+
+* {
+    separatorcolor: transparent;
+    selected-normal-background: @hover;
+    normal-background: @bg0;
+    alternate-normal-background: @bg0;
+}
+
+mainbox {
+    border: 2px;
+    border-color: @border;
+    padding: 10px;
+}
+
+window {
+	border-radius: 16px;
+    background-color: @bg;
+    padding: 0px;
+    width: 40%;
+}
+
+configuration {
+	font: "Inter Variable 20";
+    padding: 10px;
+}
+
+inputbar {
+    children: [textbox-prompt-colon, prompt, entry];
+}
+
+prompt {
+	margin: 10px;
+}
+
+textbox-prompt-colon {
+	margin: 10px 0 0 0;
+    expand:     false;
+    str:        " ";
+	font: "Inter Variable 24";
+    text-color: @entry-icon;
+}
+
+entry {
+    placeholder: "Search";
+	placeholder-color: @placeholder;
+    text-color: @entry-text;
+    padding: 8px 0 8px 8px;
+	margin: 5px 0px 10px 0px;
+    background-color: @background-color;
+    border-radius: 10px;
+}
+
+listview {
+    lines: 5;
+}
+
+element {
+    padding: 10px 10px;
+    height: 50px;
+    border-radius: 5px;
+    children: [ element-icon, element-text ];
+}
+
+element-text {
+    text-color: @text;
+}
+
+element-icon {
+	padding: 0 10px 0 0;
+	size: 30;
+}
+
+#scrollbar {
+    handle-color: transparent;
+    handle-width: 4px ;
+    padding: 0;
+}
+
