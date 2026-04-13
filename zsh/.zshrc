@@ -44,6 +44,8 @@ plug() {
 plug "zsh-syntax-highlighting"
 plug "zsh-completions"
 plug "zsh-autosuggestions"
+plug "gradle-completion-9.4.1"
+
 
 source $XDG_CONFIG_HOME/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $XDG_CONFIG_HOME/zsh/plugins/zsh-completions/zsh-completions.plugin.zsh
