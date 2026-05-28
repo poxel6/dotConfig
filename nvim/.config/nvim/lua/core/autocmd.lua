@@ -17,7 +17,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
 vim.api.nvim_create_user_command("Chmod", '!chmod +x %', {})
 
-vim.api.nvim_create_autocmd({ "ColorScheme", "BufEnter" }, {
+vim.api.nvim_create_autocmd({ "ColorScheme", "BufRead" }, {
 	desc = "When ColorScheme is changed, source my color patches.",
 	callback = function ()
 		require("core.colors").setup()

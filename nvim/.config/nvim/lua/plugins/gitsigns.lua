@@ -1,11 +1,9 @@
 return {
 	"lewis6991/gitsigns.nvim",
-	lazy = true,
-	-- keys = {
-	-- 	{
-	-- 		"<leader>gh",
-	-- 		require("gitsigns").preview_hunk_inline,
-	-- 		desc = "Show Neogit UI"
-	-- 	}
-	-- }
+	lazy = false,
+	config = function()
+		local gs = require("gitsigns")
+	-- gs
+		vim.keymap.set('n', '<leader>gh', gs.preview_hunk_inline)
+	end
 }
