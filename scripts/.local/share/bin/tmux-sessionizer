@@ -5,7 +5,7 @@ if [[ $# -eq 1 ]]; then
 else
 	selected=$(find \
 		~/Personal \
-		~/Personal/tmp/* \
+		~/Personal/tmp/*/ \
 		~/Personal/old/* \
 		~/Personal/source/ \
 		~/Personal/code/ \

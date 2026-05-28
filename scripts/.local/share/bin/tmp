@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-TMP_LOCATION="$HOME/Personal/TMP/"
+TMP_LOCATION="$HOME/Personal/tmp/"
 TMP_FOLDER="$TMP_LOCATION/$(date '+%Y_%m_%d')"
 input="USER INPUT"
 
