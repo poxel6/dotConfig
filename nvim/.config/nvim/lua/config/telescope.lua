@@ -6,6 +6,8 @@ require "telescope".setup({
 			"bin/",
 			"node_modules/",
 			"build/",
+			"lazy-lock.json",
+			"Cargo.lock",
 		},
 	},
 	pickers = {},

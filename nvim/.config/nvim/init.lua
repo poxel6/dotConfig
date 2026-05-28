@@ -1,8 +1,9 @@
 require("core.option")
 require("core.keymap")
+require("core.lazy")
+require("core.tabline")
 require("core.autocmd")
 require("core.lsp")
 require("core.colors")
-require("core.lazy")
 
-vim.cmd [[colorscheme edge]]
+vim.cmd "colorscheme edge"

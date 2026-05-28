@@ -1,5 +1,7 @@
 return {
 	'ZhiyuanLck/smart-pairs',
 	event = 'InsertEnter',
-	-- opts = {}
+	config = function() 
+		require("pairs"):setup()
+	end
 }

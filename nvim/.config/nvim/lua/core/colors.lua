@@ -1,31 +1,25 @@
-vim.api.nvim_set_hl(0, "BlinkCmpMenu", { bg = "NONE" })
-vim.api.nvim_set_hl(0, "BlinkCmpKind", { bg = "NONE" })
-vim.api.nvim_set_hl(0, "BlinkCmpMenuBorder", { bg = "NONE" })
-vim.api.nvim_set_hl(0, "BlinkCmpMenuSelection", { bg = "NONE" })
-vim.api.nvim_set_hl(0, "BlinkCmpLabel", { bg = "NONE" })
-vim.api.nvim_set_hl(0, "BlinkCmpLabelDescription", { bg = "NONE" })
-vim.api.nvim_set_hl(0, "BlinkCmpLabelDetail", { bg = "NONE" })
-vim.api.nvim_set_hl(0, "BlinkCmpScrollBarThumb", { bg = "NONE" })
-vim.api.nvim_set_hl(0, "BlinkCmpScrollBarGutter", { bg = "NONE" })
-vim.api.nvim_set_hl(0, "BlinkCmpDocBorder", { bg = "NONE" })
-vim.api.nvim_set_hl(0, "BlinkCmpDocSeparator", { bg = "NONE" })
+M = {}
+M.groups = {
+	"Normal", "NormalBorder", "NormalFloat", "FloatBorder", "FloatShadow", "FloatShadowThrough", "TabLineSel",
+	"TabLineFill", "StatusLine", "StatusLineNC", "StatusLinePart", "StatusLinePartNC", "EndOfBuffer", "NormalNC",
+	"BlinkCmpMenu", "BlinkCmpKind", "BlinkCmpMenuBorder", "BlinkCmpLabel", "BlinkCmpLabelDescription",
+	"BlinkCmpLabelDetail", "BlinkCmpScrollBarThumb", "BlinkCmpScrollBarGutter", "BlinkCmpDocBorder",
+	"BlinkCmpDocSeparator"
+}
 
-vim.api.nvim_set_hl(0, "Normal", { bg = "NONE" })
-vim.api.nvim_set_hl(0, "NormalBorder", { bg = "NONE" })
-vim.api.nvim_set_hl(0, "NormalFloat", { bg = "NONE" })
-vim.api.nvim_set_hl(0, "FloatBorder", { bg = "NONE" })
-vim.api.nvim_set_hl(0, "TabLine", { bg = "NONE" })
-vim.api.nvim_set_hl(0, "TabLineSel", { bg = "NONE" })
-vim.api.nvim_set_hl(0, "TabLineFill", { bg = "NONE" })
-vim.api.nvim_set_hl(0, "StatusLine", { bg = "NONE" })
-vim.api.nvim_set_hl(0, "StatusLineNC", { bg = "NONE" })
-vim.api.nvim_set_hl(0, "StatusLinePart", { bg = "NONE" })
-vim.api.nvim_set_hl(0, "StatusLinePartNC", { bg = "NONE" })
+M.setup = function ()
+	for _, v in ipairs(M.groups) do
+		vim.api.nvim_set_hl(0, v, { bg = "NONE" })
+	end
 
-if vim.opt.relativenumber then -- doesn't work btw
-	vim.api.nvim_set_hl(0, "LineNr", { fg = "#c678dd" })
-	vim.api.nvim_set_hl(0, "LineNrAbove", { fg = "#5c6370" })
-	vim.api.nvim_set_hl(0, "LineNrBelow", { fg = "#5c6370" })
-else
-	vim.api.nvim_set_hl(0, "LineNr", { fg = "#5c6370" })
+	vim.api.nvim_set_hl(0, "TabLine", { bg = "NONE", fg = "#5c6370" })
+	if vim.opt.relativenumber then -- doesn't work btw
+		vim.api.nvim_set_hl(0, "LineNr", { fg = "#c678dd", bold = true })
+		vim.api.nvim_set_hl(0, "LineNrAbove", { fg = "#5c6370" })
+		vim.api.nvim_set_hl(0, "LineNrBelow", { fg = "#5c6370" })
+	else
+		vim.api.nvim_set_hl(0, "LineNr", { fg = "#5c6370" })
+	end
 end
+
+return M
