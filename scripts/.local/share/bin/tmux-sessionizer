@@ -5,12 +5,10 @@ if [[ $# -eq 1 ]]; then
 else
 	selected=$(find \
 		~/Personal \
-		~/Personal/resource/*/ \
-		~/Personal/tmp/*/ \
-		~/Personal/etc/ \
+		~/Personal/tmp/* \
+		~/Personal/old/* \
 		~/Personal/source/ \
-		~/Personal/CodeezNutz/*/ \
-		~/Personal/CodeezNutz/java/Minecraft/ \
+		~/Personal/code/ \
 		$XDG_CONFIG_HOME/ \
 		-mindepth 1 -maxdepth 1 -type d,l | \
 		fzf --color="bw" --no-scrollbar)
