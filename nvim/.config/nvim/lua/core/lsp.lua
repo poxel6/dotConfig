@@ -3,6 +3,7 @@ vim.lsp.enable({
 	"rust_analyzer",
 	"clangd",
 	"clang-format",
+	"zls",
 	"vtsls",
 	"biome",
 	"bashls",
@@ -13,9 +14,9 @@ vim.lsp.enable({
 	"css_variables",
 	"jsonls",
 	"ruff",
+	"ty",
 	"pyright",
 	"tinymist",
 	"marksman",
-	"markdown_oxide",
-	"jdtls",
+	"markdown_oxide"
 })
