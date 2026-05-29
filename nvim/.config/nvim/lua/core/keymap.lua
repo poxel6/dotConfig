@@ -11,8 +11,11 @@ vim.keymap.set("n", "<leader><leader>", "<CMD>e #<CR>")
 vim.keymap.set({ "x", "v", "n" }, "<leader>y", '"+y')
 vim.keymap.set({ "x", "v", "n" }, "gro", vim.lsp.buf.format)
 
-vim.keymap.set("n","<leader>l" ,"<CMD>%lua<CR>")
-vim.keymap.set("v","<leader>l" ,"<CMD>'<,'>lua<CR>gv")
+vim.keymap.set("n", "<leader>l", "<CMD>%lua<CR>")
+vim.keymap.set("v", "<leader>l", "<CMD>'<,'>lua<CR>gv")
+vim.keymap.set("n", "<leader>i", function ()
+	vim.diagnostic.config({ virtual_lines = not vim.diagnostic.config().virtual_lines or false })
+end)
 
 vim.keymap.set("n", "<leader>sf", "<CMD>Telescope find_files<CR>", { silent = true })
 vim.keymap.set("n", "<leader>sh", "<CMD>Telescope help_tags<CR>", { silent = true })
