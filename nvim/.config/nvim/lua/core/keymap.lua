@@ -17,6 +17,23 @@ vim.keymap.set("n", "<leader>i", function ()
 	vim.diagnostic.config({ virtual_lines = not vim.diagnostic.config().virtual_lines or false })
 end)
 
+vim.keymap.set("n", "<leader>m", function ()
+	vim.schedule(function ()
+		vim.cmd "silent! make"
+		vim.cmd "cwindow"
+		print "built"
+	end)
+end)
+
+vim.keymap.set("n", "<leader>M", function ()
+	vim.schedule(function ()
+		vim.cmd "silent! make run"
+		vim.cmd "cwindow"
+		print "built"
+	end)
+end)
+
+
 vim.keymap.set("n", "<leader>sf", "<CMD>Telescope find_files<CR>", { silent = true })
 vim.keymap.set("n", "<leader>sh", "<CMD>Telescope help_tags<CR>", { silent = true })
 vim.keymap.set("n", "<leader>sl", "<CMD>Telescope live_grep<CR>", { silent = true })
