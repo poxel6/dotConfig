@@ -4,6 +4,8 @@ vim.keymap.set("v", "<C-J>", ":co '<<CR>gv=gv", { silent = true })
 vim.keymap.set("v", "<C-K>", ":co '>-1<CR>gv=gv", { silent = true })
 
 vim.keymap.set("n", "<leader>r", "<CMD>make<CR>")
+vim.keymap.set("n", "<C-q>", "<CMD>:cwindow<CR>")
+vim.keymap.set("n", "<C-S-q>", "<CMD>:cclose<CR>")
 vim.keymap.set("n", "<F5>", "<CMD>update<CR><CMD>restart<CR>")
 vim.keymap.set("n", "-", "<CMD>Ex<CR>")
 vim.keymap.set("n", "<leader><leader>", "<CMD>e #<CR>")
