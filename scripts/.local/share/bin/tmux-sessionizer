@@ -7,7 +7,7 @@ else
 		~/Personal \
 		~/Personal/tmp/*/ \
 		~/Personal/old/* \
-		~/Personal/source/ \
+		~/Personal/study/ \
 		~/Personal/code/ \
 		$XDG_CONFIG_HOME/ \
 		-mindepth 1 -maxdepth 1 -type d,l | \

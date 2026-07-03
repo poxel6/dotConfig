@@ -1,0 +1,28 @@
+CompileFlags:
+  Add: [
+      -DLOCAL,
+      -Wall,
+      -Wconversion,
+      -Wextra,
+      -Wshadow,
+      -Wfloat-equal,
+      -Wno-unused-const-variable,
+      -Wno-sign-conversion,
+    ]
+
+Diagnostics:
+  UnusedIncludes: Strict
+
+Completion:
+  ArgumentLists: Delimiters
+
+InlayHints:
+  ParameterNames: true
+  DeducedTypes: true
+  Designators: true
+  BlockEnd: true
+  DefaultArguments: true
+
+Documentation:
+  CommentFormat: Doxygen
+
