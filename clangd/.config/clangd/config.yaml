@@ -1,11 +1,13 @@
 CompileFlags:
   Add: [
+      -I../include,
       -DLOCAL,
       -Wall,
       -Wconversion,
       -Wextra,
       -Wshadow,
       -Wfloat-equal,
+      -Wpadded,
       -Wno-unused-const-variable,
       -Wno-sign-conversion,
     ]
