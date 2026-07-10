@@ -7,7 +7,6 @@ CompileFlags:
       -Wextra,
       -Wshadow,
       -Wfloat-equal,
-      -Wpadded,
       -Wno-unused-const-variable,
       -Wno-sign-conversion,
     ]
