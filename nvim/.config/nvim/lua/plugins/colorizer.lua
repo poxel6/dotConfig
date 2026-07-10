@@ -6,7 +6,7 @@ return {
 			parsers = {
 				css = true,                      -- preset: enables names, hex, rgb, hsl, oklch, css_var
 				css_fn = true,                   -- preset: enables rgb, hsl, oklch
-				css_color = { enable = true },   -- color() function (srgb, display-p3, a98-rgb, etc.)
+				css_color = { enable = false },   -- color() function (srgb, display-p3, a98-rgb, etc.)
 				tailwind = {
 					enable = true,       -- parse Tailwind color names
 					update_names = true, -- feed LSP colors back into name parser (requires both enable + lsp.enable)

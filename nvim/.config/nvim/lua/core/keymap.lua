@@ -35,16 +35,6 @@ vim.keymap.set("n", "<leader>M", function ()
 	end)
 end)
 
-
-vim.keymap.set("n", "<leader>sf", "<CMD>Telescope find_files<CR>", { silent = true })
-vim.keymap.set("n", "<leader>sh", "<CMD>Telescope help_tags<CR>", { silent = true })
-vim.keymap.set("n", "<leader>sl", "<CMD>Telescope live_grep<CR>", { silent = true })
-vim.keymap.set(
-	"n", "<leader>st",
-	"<CMD>lua require('telescope.builtin').colorscheme({enable_preview = true, ignore_builtins = true, preview = false})<CR>",
-	{ silent = true }
-)
-
 vim.keymap.set({ "i", "s" }, "<C-e>", function ()
 	return require("luasnip").expandable() and '<CMD>lua require("luasnip").expand()<CR>' or "<C-e>"
 end, { expr = true, silent = true }
