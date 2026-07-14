@@ -1,12 +1,12 @@
 * {
-	bg: #CCCCCCdd;
+	bg: #0d0d0d77;
 	bg0: rgba(255,255,255, 0%);
-	hover: #22222222;
-	text: #111111dd;
-    entry-text: #111111dd;
-	entry-icon: #111111dd;
-	placeholder: #4c4c4c69;
+	hover: #151721bf;
+	text: #f5f5f5dd;
+    entry: #f5f5f5dd;
+	placeholder: #acacac69;
 	border: transparent;
+	input-bottom-border: #272727dd;
 
  	// bg: rgba(38,43,52,85%);
 	bg1: rgba(255,255,255, 0%);

@@ -27,13 +27,11 @@ return {
 		{
 			"<leader>sl",
 			function()
-				require("telescope.builtin").find_files(
-					require("telescope.themes").get_ivy({ layout_config = { height = 0.3 } })
-				)
+				require("telescope.builtin").live_grep()
 			end,
 		},
 		{
-			"<leader>sl",
+			"<leader>st",
 			function()
 				require("telescope.builtin").colorscheme(require("telescope.themes").get_ivy({
 					enable_preview = true,

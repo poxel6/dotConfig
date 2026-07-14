@@ -44,10 +44,28 @@
 	singleKey = true
 
 [delta]
+	features = OneHalfDark unobtrusive-line-numbers decorations
 	hyperlinks = true
 	side-by-side = false
 	navigate = true
 	dark = true
+
+[delta "unobtrusive-line-numbers"]
+	line-numbers = true
+    line-numbers-minus-style = "#ff0066"
+    line-numbers-zero-style = "#666666"
+    line-numbers-plus-style = "#66ff00"
+    line-numbers-left-format = "{nm:>4}┊"
+    line-numbers-right-format = "{np:>4}│"
+    line-numbers-left-style = blue
+    line-numbers-right-style = blue
+
+[delta "decorations"]
+    commit-decoration-style = bold yellow box ul
+    file-style = bold yellow ul
+    file-decoration-style = none
+    hunk-header-decoration-style = yellow box
+
 
 [url "git@github.com:PoXel6/"]
 	insteadOf = "pox:"

@@ -15,10 +15,13 @@ mainbox {
 }
 
 window {
-	border-radius: 16px;
-    background-color: @bg;
+	border-radius: 32px;
+    // background-color: @bg;
+    // background-color: transparent;
+	background-color: rgba(30, 30, 30, 0.75);
+
     padding: 0px;
-    width: 40%;
+    width: 45%;
 }
 
 configuration {
@@ -28,6 +31,8 @@ configuration {
 
 inputbar {
     children: [textbox-prompt-colon, entry];
+	border: 0 0 2px 0;
+    border-color: @input-bottom-border;
 }
 
 prompt {
@@ -39,37 +44,40 @@ textbox-prompt-colon {
     expand:     false;
     str:        " ";
 	font: "Inter Variable 24";
-    text-color: @entry-icon;
+    text-color: @entry;
 }
 
 entry {
     placeholder: "Search";
+	font: "Inter Variable 15";
 	placeholder-color: @placeholder;
-    text-color: @entry-text;
+    text-color: @entry;
     padding: 8px 0 8px 8px;
 	margin: 5px 0px 10px 0px;
-    background-color: @background-color;
+    // background-color: @background-color;
+    background-color: transparent;
     border-radius: 10px;
 }
 
 listview {
-    lines: 5;
+    lines: 7;
 }
 
 element {
-    padding: 10px 10px;
-    height: 50px;
-    border-radius: 5px;
+	border-radius: 14px;
+    padding: 10px;
+    margin: 2px;
     children: [ element-icon, element-text ];
 }
 
 element-text {
     text-color: @text;
+	font: "Inter Variable 14";
 }
 
 element-icon {
 	padding: 0 10px 0 0;
-	size: 30;
+	size: 40;
 }
 
 #scrollbar {
@@ -78,3 +86,11 @@ element-icon {
     padding: 0;
 }
 
+message {
+    enabled: true;
+    padding: 12px;
+}
+
+textbox {
+    content: "↵ Open    ⌥↵ Open in Terminal    Esc Close";
+}
