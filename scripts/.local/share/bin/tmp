@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-TMP_LOCATION="$HOME/Personal/tmp/"
+TMP_LOCATION="/tmp"
 TMP_FOLDER="$TMP_LOCATION/$(date '+%Y_%m_%d')"
 input="USER INPUT"
 
@@ -18,4 +18,4 @@ if [[ ! -d "$TARGET" ]]; then
 	mkdir -p "$TARGET"
 fi
 
-~/.local/share/bin/tmux-sessionizer "$TARGET"
+$HOME/.local/share/bin/tmux-sessionizer "$TARGET"
