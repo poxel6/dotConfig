@@ -4,3 +4,4 @@ export EDITOR='nvim'
 export TERM='kitty'
 export TERMINAL='ghostty'
 export XDG_STATE_HOME=$HOME/.local/state
+export QT_QPA_PLATFORM=wayland
