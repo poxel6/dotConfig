@@ -28,7 +28,10 @@ vim.keymap.set("n", "<leader>M", function()
 end)
 
 vim.keymap.set("n", "<leader>m", function()
-	vim.cmd.Term(vim.o.makeprg)
+	local makeprg = vim.o.makeprg
+	local file = vim.fn.expand("%")
+	local make = makeprg:gsub("%%", file)
+	vim.cmd.Term(make)
 end)
 
 vim.keymap.set({ "i", "s" }, "<C-e>", function()
