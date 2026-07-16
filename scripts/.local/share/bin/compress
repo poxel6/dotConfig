@@ -1,0 +1,1 @@
+ffmpeg -i $1 -map 0 -c copy -movflags +faststart $2.mp4
