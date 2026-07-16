@@ -18,6 +18,7 @@
   "reload_style_on_change": true,
 
   "include": [
+    "./modules/timer.jsonc",
     "./modules/update.jsonc",
     "./modules/powermenu.jsonc",
     "./modules/wireplumber.jsonc",
@@ -39,6 +40,7 @@
   ],
 
   "modules-right": [
+	  "custom/timer",
 	  "tray",
 	  "network",
 	  "idle_inhibitor",

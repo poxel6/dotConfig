@@ -1,5 +1,5 @@
 * {
-  font-family: "InterVariable", "IosevkaNerdFont";
+  font-family: "InterVariable", "Iosevka Nerd Font Mono 16";
   font-size: 16px;
   min-height: 10px;
 }
@@ -50,6 +50,7 @@ tooltip {
 #wireplumber,
 #wireplumber.muted,
 #custom-update,
+#custom-timer,
 #tray,
 #workspaces {
   color: @main-fg;
@@ -93,3 +94,65 @@ tooltip {
 #custom-update{
 	color: @red;
 }
+
+ /* Waybar Timer */
+/* https://github.com/niraletter/waybar-pomodoro-timer */
+ #custom-timer {
+	 background: @main-bg;
+	 color: @main-fg;
+	 font-family: "Iosevka Nerd Font Mono 16";
+     font-size: 18px;
+     border-radius: 15px;
+     font-weight: 600;
+     transition: all 0.2s ease;
+ }
+
+ #custom-timer.disabled {
+	 background: @main-bg;
+	 color: @main-fg;
+     font-weight: normal;
+     animation-duration: 1s;
+     animation-timing-function: ease-in-out;
+     animation-direction: alternate;
+ }
+
+ #custom-timer.idle,
+ #custom-timer.running,
+ #custom-timer.pomo_msg,
+ #custom-timer.paused,
+ #custom-timer.done,
+ #custom-timer.reset,
+ #custom-timer.select {
+	 background: @main-bg;
+	 color: @main-fg;
+ }
+
+ #custom-timer.pomo_break {
+	 color: @lime;
+ }
+
+ #custom-timer.warning {
+	 background: @main-bg;
+	 color: @yellow;
+     animation-name: red-alert;
+     animation-duration: 1s;
+     animation-timing-function: ease-in-out;
+     animation-iteration-count: infinite;
+     animation-direction: alternate;
+ }
+
+ /* -----------------------------------------------------------------------------
+ * KEYFRAMES: Red Color Fading
+ * ----------------------------------------------------------------------------- */
+ @keyframes red-alert {
+     0% {
+         color: #ff4d4d; /* Bright, visible Red */
+         opacity: 1;
+     }
+     100% {
+         color: #ff4d4d;
+         opacity: 0.75; /* Fade cleanly to 75% transparency */
+         text-shadow: none;
+     }
+ }
+

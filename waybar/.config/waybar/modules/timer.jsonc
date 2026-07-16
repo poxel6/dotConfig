@@ -1,0 +1,14 @@
+{
+	"custom/timer": {
+		"exec": "~/.local/share/bin/timer.sh",
+		"return-type": "json",
+		"format": "{}",
+		"on-click": "~/.local/share/bin/timer.sh click",
+		"on-click-right": "~/.local/share/bin/timer.sh right",
+		"on-click-middle": "~/.local/share/bin/timer.sh middle",
+		"on-scroll-up": "~/.local/share/bin/timer.sh down",
+		"on-scroll-down": "~/.local/share/bin/timer.sh up",
+		"tooltip": true,
+		"escape": true
+	}
+}
