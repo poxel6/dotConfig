@@ -65,6 +65,14 @@ local root_markers2 = {
 	"selene.yml",
 }
 
+local lib = {
+	vim.env.VIMRUNTIME,
+	"/usr/share/hypr/stubs",
+}
+
+-- lib = vim.tbl_extend("force", lib, vim.api.nvim_get_runtime_file("", true))
+print(vim.inspect(lib))
+
 ---@type vim.lsp.Config
 return {
 	on_init = function(client)
@@ -90,13 +98,8 @@ return {
 			diagnostics = { globals = { "vim" } },
 			runtime = { version = "LuaJIT" },
 			workspace = {
-				library = {
-					vim.env.VIMRUNTIME,
-					-- For LSP Settings Type Annotations: https://github.com/neovim/nvim-lspconfig#lsp-settings-type-annotations
-					-- vim.api.nvim_get_runtime_file("lua/lspconfig", false)[1],
-				},
+				library = lib,
 				-- Or pull in all of 'runtimepath'. May be slower! https://github.com/neovim/nvim-lspconfig/issues/3189
-				library = vim.api.nvim_get_runtime_file("", true),
 			},
 		},
 	},
