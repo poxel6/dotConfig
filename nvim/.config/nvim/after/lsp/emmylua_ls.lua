@@ -70,9 +70,6 @@ local lib = {
 	"/usr/share/hypr/stubs",
 }
 
--- lib = vim.tbl_extend("force", lib, vim.api.nvim_get_runtime_file("", true))
-print(vim.inspect(lib))
-
 ---@type vim.lsp.Config
 return {
 	on_init = function(client)
