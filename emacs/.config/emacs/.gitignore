@@ -1,0 +1,29 @@
+# Packages
+elpa/
+
+# Native compilation
+eln-cache/
+
+# Auto saves
+auto-save-list/
+
+# Backup files
+*~
+
+# Tree-sitter grammars
+tree-sitter/
+
+# History/state files
+recentf
+savehist
+save-place
+places
+bookmarks
+project-list
+network-security.data
+transient/
+url/
+
+# Misc caches
+var/
+cache/
