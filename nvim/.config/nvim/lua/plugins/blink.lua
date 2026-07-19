@@ -1,6 +1,7 @@
 return {
-	'saghen/blink.cmp',
-	dependencies = { 'L3MON4D3/LuaSnip' },
+	"saghen/blink.cmp",
+	event = { "InsertEnter", "CmdlineEnter" },
+	dependencies = { "L3MON4D3/LuaSnip" },
 	version = "1.*",
-	opts = require "config.blink"
+	opts = require("config.blink"),
 }
