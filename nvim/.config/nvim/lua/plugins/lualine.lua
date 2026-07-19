@@ -1,11 +1,11 @@
 return {
 	"nvim-lualine/lualine.nvim",
 	dependencies = { "nvim-tree/nvim-web-devicons" },
-	event = "VeryLazy",
+	event = "UIEnter",
 	opts = {
 		options = {
 			icons_enabled = true,
-			theme = "auto",
+			theme = "edge",
 			section_separators = { left = "", right = "" },
 			component_separators = { left = "", right = "" },
 			disabled_filetypes = {

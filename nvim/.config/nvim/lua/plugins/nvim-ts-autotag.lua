@@ -1,7 +1,13 @@
 return {
 	"windwp/nvim-ts-autotag",
-	lazy = true,
-	event = "BufReadPre",
+	ft = {
+		"html",
+		"xml",
+		"javascriptreact",
+		"typescriptreact",
+		"vue",
+		"svelte"
+	},
 	opts = {
 		opts = {
 			enable_close = true,         -- Auto close tags
