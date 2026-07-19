@@ -37,7 +37,6 @@ return {
 					enable_preview = true,
 					ignore_builtins = true,
 					preview = false,
-					layout_config = { height = 0.8 },
 				}))
 			end,
 		},
