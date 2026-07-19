@@ -6,4 +6,4 @@ require("core.autocmd")
 require("core.lsp")
 require("core.colors")
 
-vim.cmd("colorscheme koda")
+vim.cmd("colorscheme edge")
