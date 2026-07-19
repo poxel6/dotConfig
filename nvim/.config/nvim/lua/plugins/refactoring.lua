@@ -1,17 +1,21 @@
 return {
 	"ThePrimeagen/refactoring.nvim",
 	dependencies = {
-		"lewis6991/async.nvim"
+		"lewis6991/async.nvim",
 	},
-	lazy = false,
+	cmd = {
+		"Refactor",
+		"RefactorExtract",
+		"RefactorExtractFunction",
+	},
 	keys = {
 		{
 			"<leader>o",
-			function ()
+			function()
 				require("refactoring").select_refactor()
 			end,
 			desc = "Do something",
-			mode = { "n", "x" }
-		}
-	}
+			mode = { "n", "x" },
+		},
+	},
 }

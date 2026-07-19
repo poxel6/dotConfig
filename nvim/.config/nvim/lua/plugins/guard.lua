@@ -3,6 +3,7 @@ return {
 	dependencies = {
 		"nvimdev/guard-collection",
 	},
+	cmd = "Guard",
 	config = function()
 		local ft = require("guard.filetype")
 		ft("lua"):fmt("stylua")
