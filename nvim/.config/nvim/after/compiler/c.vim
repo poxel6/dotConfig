@@ -8,6 +8,6 @@ if !empty(findfile("Makefile", ".;"))
 elseif !empty(findfile("Justfile", ".;"))
 	CompilerSet makeprg=just
 else
-	CompilerSet makeprg=clang\ %\ -o\ main\ &&\ ./main
+	CompilerSet makeprg=cc\ %\ -o\ %:r\ &&\ %:p:r
 endif
 
