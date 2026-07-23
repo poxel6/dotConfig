@@ -17,9 +17,32 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 -- })
 --
 vim.api.nvim_create_user_command("Chmod", "!chmod +x %", {})
+
+vim.api.nvim_create_user_command("Term", function()
+	local buf = vim.api.nvim_create_buf(false, true)
+	if buf == 0 then
+		vim.notify("Something went wrong.", vim.log.levels.ERROR)
+		return
+	end
+
+	_ = vim.api.nvim_open_win(buf, true, { split = "right", win = 0 })
+	vim.cmd.startinsert()
+
+	local job = vim.fn.jobstart(vim.o.shell, {
+		term = true,
+	})
+	local enter = function()
+		return vim.api.nvim_replace_termcodes("<CR>", true, false, true)
+	end
+	vim.api.nvim_chan_send(job, "clear" .. enter())
+end, {
+	nargs = 0,
+	force = false,
+})
+
 local is_toggle = false
 local job
-vim.api.nvim_create_user_command("Term", function(opts)
+vim.api.nvim_create_user_command("AutoRun", function(opts)
 	local buf = vim.api.nvim_create_buf(false, true)
 	if buf == 0 then
 		vim.notify("Something went wrong.", vim.log.levels.ERROR)
@@ -33,10 +56,7 @@ vim.api.nvim_create_user_command("Term", function(opts)
 	local currwin
 	if not is_toggle then
 		currwin = currwin or vim.api.nvim_get_current_win()
-		local win = vim.api.nvim_open_win(buf, true, { split = "right", win = 0 })
-		-- vim.api.nvim_open_term(buf, {})
-		-- vim.cmd.startinsert()
-		-- vim.cmd("e #")
+		_ = vim.api.nvim_open_win(buf, true, { split = "right", win = 0 })
 		is_toggle = true
 	end
 
