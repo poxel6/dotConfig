@@ -4,6 +4,7 @@
   "baleia.nvim": { "branch": "main", "commit": "710537ff5cd669c5a76c5f5b6a9169fd9b913d18" },
   "blink.cmp": { "branch": "main", "commit": "78336bc89ee5365633bcf754d93df01678b5c08f" },
   "boo-colorscheme-nvim": { "branch": "main", "commit": "8eb36d50a124472c8b3c864e45997b4ac7331db7" },
+  "conform.nvim": { "branch": "master", "commit": "619363c30309d29ffa631e67c8183f2a72caa373" },
   "crates.nvim": { "branch": "main", "commit": "afcd1cc3eeceb5783676fc8464389b9216a29d05" },
   "diffview.nvim": { "branch": "main", "commit": "4516612fe98ff56ae0415a259ff6361a89419b0a" },
   "edge": { "branch": "master", "commit": "7ec78c21bd8f0b2b0b47043bb1e730c561647c72" },
