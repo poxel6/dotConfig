@@ -1,96 +1,45 @@
-#!/usr/bin/env bash
-# p://www.videolan.org/x264.html - options: cabac=1 ref=1 deblock=1:0:0
-# analyse=0x3:0x3 me=dia subme=1 psy=1 psy_rd=1.00:0.00 mixed_ref=0 me_range=16
-# chroma_me=1 trellis=0 8x8dct=1 cqm=0 deadzone=21,11 fast_pskip=1
-# chroma_qp_offset=0 threads=4 lookahead_threads=4 sliced_threads=1 slices=4
-# nr=0 decimate=1 interlaced=0 bluray_compat=0 constrained_intra=0 bframes=0
-# weightp=1 keyint=250 keyint_min=25 scenecut=40 intra_refresh=0 rc=crf
-# mbtree=0 crf=18.0 qcomp=0.00 qpmin=0 qpmax=69 qpstep=4 ip_ratio=1.40
-# aq=1:1.00
-# Output #0, matroska, to 'recording.mkv':
+CODEC=hevc_vaapi
+FPS=60
+MONITOR="DP-2"
+AUDIO="alsa_output.pci-0000_00_1f.3.analog-stereo.monitor"
+QP=20
 
-CODEC=hevc_vulkan
 TIME=$(date '+%Hh%Mm%Ss')
 DATE=$(date '+%Y_%m_%d')
 NAME=recording_$TIME
 DIR=$HOME/Videos/recordings/$DATE
-FPS=60
-PRESET=fast
-CRF=18
-MONITOR="DP-2"
-AUDIO="alsa_output.pci-0000_00_1f.3.analog-stereo.monitor"
 
 mkdir -p "$DIR"
 echo $NAME
 
-notification () {
-	local app_name="Video Recording" 
-	local icon="audio-headphones-symbolic" 
+recording_base() {
+	wf-recorder \
+		-r "$FPS" \
+		--codec "$CODEC" \
+		-p qp=$QP \
+		--force-yuv \
+		--output "$MONITOR" \
+		--audio "$AUDIO" \
+		--file "$DIR/$NAME.mp4"
+}
+
+notification() {
+	local app_name="Video Recording"
+	local icon="audio-headphones-symbolic"
 	local urgency="low"
 	local title="Recording:"
 	notify-send --app-name=$app_name --urgency=$urgency --icon=$icon "$@"
 }
 
-recording_base() {
-	wf-recorder \
-		-r $FPS \
-		-p crf=$CRF \
-		-p qcomp=0.8 \
-		-p qdiff=4 \
-		-p qpmin=3 \
-		-p qpmax=7 \
-		-p bframes=4 \
-		-p ip_ratio=0.71 \
-		--output=$MONITOR \
-		--audio=$AUDIO \
-		--file $DIR/$NAME.mp4
-	}
-
-record_region() {
-	notification "Regional Recording Started"
-	recording_base -g "$(slurp)"
-}
-
-record_fullscreen() {
-	notification "Recording Started"
-	recording_base
-}
-
-record_custom_name () {
-	NAME=$(rofi -i -dmenu)
-	notification "Recording with Name: $NAME Started"
-	recording_base
-}
-
-stop_recording () {
+if pgrep -x "wf-recorder" >/dev/null; then
 	notification "Recording Stopped"
 	wf_pids=$(pgrep -x wf-recorder)
 	if [ -n "$wf_pids" ]; then
 		for pid in $wf_pids; do
-			kill -15 $pid || true 
+			kill -15 $pid || true
 		done
 	fi
-}
-
-# Check if music is already playing
-if pgrep -x "wf-recorder" > /dev/null; then
-	stop_recording
 else
-	user_choice=$(printf "Start Recording\nRecord a Region\nRecord with Custom name" | rofi -dmenu)
-
-	echo "User choice: $user_choice"
-
-	case "$user_choice" in
-		"Start Recording")
-			record_fullscreen
-			;;
-		"Record a Region")
-			record_region
-			;;
-		"Record with Custom name")
-			record_custom_name
-			;;
-		*)
-			;;
-	esac
+	notification "Recording Started"
+	recording_base
 fi

@@ -2,23 +2,26 @@
 
 echo "Removing orphan packages..."
 echo "---------------------------"
-yay -Rns $(yay -Qqdtt) --noconfirm
-
-echo "Failed systemd services"
-echo "---------------------------"
-systemctl --failed | less
-
-echo "Journalctl logs"
-echo "---------------------------"
-journalctl -b
+sudo pacman -Rns $(yay -Qqdtt) --noconfirm
 
 echo "Clearing caches"
 echo "---------------------------"
 sudo rm -rf /var/cache/pacman/pkg/*
-rm -rf $XDG_CACHE_HOME/yay/*
-rm -rf $XDG_CACHE_HOME/gradle/*
+sudo rm -rf $XDG_CACHE_HOME/yay/*
+sudo rm -rf $XDG_CACHE_HOME/gradle/*
+sudo rm -rf $XDG_CACHE_HOME/BraveSoftware/*
+sudo rm -rf $XDG_CACHE_HOME/go/*
+sudo rm -rf $HOME/.npm/_cacache/*
 
 echo "Updating system..."
 echo "---------------------------"
-yay -Syu --noconfirm
+sudo pacman -Syu --noconfirm
+
+# echo "Failed systemd services"
+# echo "---------------------------"
+# systemctl --failed | less
+#
+# echo "Journalctl logs"
+# echo "---------------------------"
+# journalctl -b
 
