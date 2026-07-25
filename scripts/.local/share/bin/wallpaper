@@ -1,8 +1,6 @@
 #!/usr/bin/env bash
 
-wallpapers="/home/pox/Pictures/Wallpapers/"
-pics=$(fd . "$wallpapers" -t f | sed "s|$wallpapers||g" | rofi -dmenu)
-
-wall=$wallpapers$pics
-swww img $wall
-hellwal -i $wall
+wallpapers="$HOME/Pictures/Wallpapers"
+pics=$(find "$wallpapers" -type f | sed "s|$wallpapers/||g" | rofi -dmenu)
+wall="$wallpapers/$pics"
+awww img $wall

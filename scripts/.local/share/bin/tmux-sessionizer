@@ -1,16 +1,18 @@
 #!/usr/bin/env bash
 
+scratch="$HOME/poxel6/scratch/*"
+projects=(
+	"$HOME/poxel6/code/"
+	$scratch
+	"$HOME/poxel6/third-party"
+	"$XDG_CONFIG_HOME"
+)
+
 if [[ $# -eq 1 ]]; then
 	selected=$1
 else
-	selected=$(find \
-		~/Personal \
-		~/Personal/tmp/*/ \
-		~/Personal/old/* \
-		~/Personal/study/ \
-		~/Personal/code/ \
-		$XDG_CONFIG_HOME/ \
-		-mindepth 1 -maxdepth 1 -type d,l | \
+	selected=$(find "${projects[@]}" \
+		-mindepth 1 -maxdepth 1 -type d,l |
 		fzf --color="bw" --no-scrollbar)
 fi
 
@@ -19,24 +21,25 @@ if [[ -z $selected ]]; then
 fi
 
 selected_name=$(basename "$selected" | tr .- _)
-tmux_running=$(pgrep tmux)
+selected_path=$(basename $(dirname "$selected") | tr .- _)
+display_name="$selected_name@$selected_path"
 
 attach() {
 	if [[ -z $TMUX ]]; then
-		tmux attach -t $selected_name
+		tmux attach -t $display_name
 	else
-		tmux switch-client -t $selected_name
+		tmux switch-client -t $display_name
 	fi
 }
 
 create() {
-	tmux new-session -s $selected_name -c $selected -d
-	tmux neww -t $selected_name:2 -c $selected
-	tmux selectw -t $selected_name:1
+	tmux new-session -s $display_name -c $selected -d
+	tmux neww -t $display_name:2 -c $selected
+	tmux selectw -t $display_name:1
 	attach
 }
 
-if tmux has-session -t $selected_name; then
+if tmux has-session -t $display_name; then
 	attach
 else
 	create

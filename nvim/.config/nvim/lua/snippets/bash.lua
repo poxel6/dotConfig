@@ -10,8 +10,7 @@ local shebang_fmt = "#!/usr/bin/env {}"
 local shebang_inodes = { c(1, {
 	t("bash"),
 	i(0),
-})
-}
+}) }
 local shebang = {
 	s("#", fmt(shebang_fmt, shebang_inodes, {})),
 }

@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-
-SCRIPT=$(fd . ~/.local/share/bin -tf | sed "s|$HOME/.local/share/bin/||g" | rofi -dmenu)
-$HOME/.local/share/bin/$SCRIPT
-

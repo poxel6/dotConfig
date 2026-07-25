@@ -1,8 +1,9 @@
+---@diagnostic disable: undefined-field, unresolved-require
 local ls = require("luasnip")
 local s = ls.snippet
 local i = ls.insert_node
 local fmt = require("luasnip.extras.fmt").fmt
-local rep = require('luasnip.extras').rep
+local rep = require("luasnip.extras").rep
 
 local snip_fmt = [[
 local {}_fmt = {}

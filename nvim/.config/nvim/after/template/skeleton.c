@@ -1,0 +1,3 @@
+#include "@FILENAME@.h"
+
+@CURSOR@

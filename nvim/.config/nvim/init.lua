@@ -7,3 +7,4 @@ require("core.lsp")
 require("core.colors")
 
 vim.cmd("colorscheme edge")
+require("core.skeleton")

@@ -1,10 +1,9 @@
 #!/usr/bin/env bash
 
-TMP_LOCATION="/tmp"
-TMP_FOLDER="$TMP_LOCATION/$(date '+%Y_%m_%d')"
+TMP_LOCATION="poxel6/scratch"
 input="USER INPUT"
 
-TMP_NAME="test-"
+TMP_NAME=""
 if [[ $# != 1 ]]; then
 	read -p "[PROMPT]: Enter a name: " input
 	TMP_NAME+="$input"
@@ -12,7 +11,18 @@ else
 	TMP_NAME+="$1"
 fi
 
-TARGET="$TMP_FOLDER/$TMP_NAME"
+# GPT MAGIC
+# Split "zig-something" into:
+#   LANG=zig
+#   TMP_NAME=something
+LANG="${TMP_NAME%%-*}"
+TMP_NAME="${TMP_NAME#*-}"
+
+echo "LANG: $LANG"
+echo "TMP_NAME: $TMP_NAME"
+
+TARGET="$HOME/$TMP_LOCATION/$LANG/$TMP_NAME"
+echo "TARGET: $TARGET"
 
 if [[ ! -d "$TARGET" ]]; then
 	mkdir -p "$TARGET"

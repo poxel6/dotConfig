@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+code="$HOME/poxel6/code"
+case "$1" in
+new)
+	if [[ "$2" != "" ]]; then
+		echo "mkdir -p $code/$2"
+		echo "echo \"clone_repo_if_dont_exist poxel6/$2\" >> ~/dotConfig/repo.sh"
+		echo "cd ~/dotConfig"
+		echo "./repo.sh"
+	else
+		echo "[ERROR]: name cannot be empty."
+	fi
+	;;
+list)
+	find ~/poxel6/code -mindepth 1 -maxdepth 1 -type d | sed "s|/home/conch|~|"
+	;;
+tmp)
+	find ~/poxel6/scratch -mindepth 2 -maxdepth 2 -type d | sed "s|/home/conch|~|"
+	;;
+esac

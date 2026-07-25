@@ -1,3 +1,3 @@
 #pragma once
 
-{{CURSOR}}
+@CURSOR@

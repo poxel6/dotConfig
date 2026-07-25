@@ -8,6 +8,7 @@ if !empty(findfile("Makefile", ".;"))
 elseif !empty(findfile("Justfile", ".;"))
 	CompilerSet makeprg=just
 else
-	CompilerSet makeprg=cc\ %\ -o\ %:r\ &&\ %:p:r
+	let s = expand("%:r")
+	execute 'CompilerSet makeprg=cc\ %\ -o\ ' .. s ..'\ &&\ ./' .. s
 endif
 
