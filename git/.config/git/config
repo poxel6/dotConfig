@@ -34,10 +34,11 @@
 
 [diff]
 	renames = copies
+	algorithm = histogram
 
 [difftool]
 	tool = nvimdiff
-	guitool = nvimdiff
+	prompt = false
 
 [interactive]
 	diffFilter = delta --color-only --show-syntax-themes
@@ -83,8 +84,7 @@
 	rebase = true
 
 [merge]
-	tool = nvimdiff1
-	guitool = nvimdiff1
+	tool = nvimdiff2
 	conflictStyle = zdiff3
 
 [rebase]
@@ -112,3 +112,4 @@
 
 [rerere]
 	enabled = true
+	autoupdate = true
