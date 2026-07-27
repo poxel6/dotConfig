@@ -8,3 +8,4 @@ require("core.colors")
 
 vim.cmd("colorscheme edge")
 require("core.skeleton")
+require("core.autorun")
