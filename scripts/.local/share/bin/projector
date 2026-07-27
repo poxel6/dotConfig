@@ -5,9 +5,13 @@ case "$1" in
 new)
 	if [[ "$2" != "" ]]; then
 		echo "mkdir -p $code/$2"
+		mkdir -p $code/$2
 		echo "echo \"clone_repo_if_dont_exist poxel6/$2\" >> ~/dotConfig/repo.sh"
+		echo "clone_repo_if_dont_exist poxel6/$2" >>~/dotConfig/repo.sh
 		echo "cd ~/dotConfig"
+		cd ~/dotConfig
 		echo "./repo.sh"
+		./repo.sh
 	else
 		echo "[ERROR]: name cannot be empty."
 	fi

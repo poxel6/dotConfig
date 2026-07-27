@@ -27,11 +27,15 @@ vim.keymap.set("n", "<leader>M", function()
 	end)
 end)
 
-vim.keymap.set("n", "<leader>t", vim.cmd.Term)
+vim.keymap.set("n", "<leader>t", "<CMD>vs term://zsh<CR>")
+vim.keymap.set("n", "<leader>T", "<CMD>tab term<CR>")
 vim.keymap.set("n", "<leader>m", function()
-	local makeprg = vim.o.makeprg
-	local file = vim.fn.expand("%")
-	local make = makeprg:gsub("%%", file)
+	local make = vim.o.makeprg
+	-- local makeprg = vim.o.makeprg
+	-- local file = vim.fn.expand("%:t")
+	-- local make = makeprg:gsub("%%", file)
+	-- print(file)
+	-- print(makeprg)
 	vim.cmd.AutoRun(make)
 end)
 
