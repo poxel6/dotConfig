@@ -1,14 +1,15 @@
 {
 	"mpris": {
 		"format": "{player_icon} {title}",
-		"format-paused": "{status_icon} <i>{dynamic}</i>",
+		"format-paused": "<big>{status_icon}</big> <i>{title}</i>",
 		"player-icons": {
 			"default": "▶",
 			"mpv": "🎵"
 		},
 		"status-icons": {
 			"paused": "⏸"
-		}
+		},
+		"tooltip-format": "{player_icon} {artist}: {title}"
 		// "ignored-players": ["firefox"]
 	}
 }
