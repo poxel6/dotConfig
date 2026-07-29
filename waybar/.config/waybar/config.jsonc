@@ -1,1 +1,46 @@
-/home/conch/.config/waybar/configs/centered_workspace_minimal.jsonc
+/*
+  
+  ██╗    ██╗ █████╗ ██╗   ██╗██████╗  █████╗ ██████╗ 
+  ██║    ██║██╔══██╗╚██╗ ██╔╝██╔══██╗██╔══██╗██╔══██╗
+  ██║ █╗ ██║███████║ ╚████╔╝ ██████╔╝███████║██████╔╝
+  ██║███╗██║██╔══██║  ╚██╔╝  ██╔══██╗██╔══██║██╔══██╗
+  ╚███╔███╔╝██║  ██║   ██║   ██████╔╝██║  ██║██║  ██║
+   ╚══╝╚══╝ ╚═╝  ╚═╝   ╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
+*/
+{
+	"layer": "top",
+	"position": "top",
+	"mode": "dock",
+	"height": 32,
+	"exclusive": true,
+	"passthrough": false,
+	"gtk-layer-shell": true,
+	"reload_style_on_change": true,
+	"include": [
+		"./modules/timer.jsonc",
+		"./modules/update.jsonc",
+		"./modules/wireplumber.jsonc",
+		"./modules/update.jsonc",
+		"./modules/notification.jsonc",
+		"./modules/clock.jsonc",
+		"./modules/network.jsonc",
+		"./modules/idle_inhibitor.jsonc",
+		"./modules/mpris.jsonc"
+	],
+	"modules-left": [
+		"clock",
+		"wireplumber",
+		"mpris",
+		"custom/update"
+	],
+	"modules-center": [
+		"hyprland/workspaces"
+	],
+	"modules-right": [
+		"custom/timer",
+		"tray",
+		"network",
+		"idle_inhibitor",
+		"custom/notification",
+	],
+}

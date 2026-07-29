@@ -1,15 +1,11 @@
 {
-  "custom/update": {
-    // "format": "<span color=\"yellow\"><big>󰮯</big></span>  {}",
-	"format": "  {}",
-	"interval": 43200, // (Arch Linux will try to check 12 hrs interval only
-    // "exec": "$HOME/.local/share/bin/update",
-    // "exec-if": "exit 0",
-	"exec": "checkupdates | wc -l",
-	"exec-if": "[[ $(checkupdates | wc -l) ]]",
-    "on-click": "kitty --app-id=custom-updater sh -c 'fastfetch --logo-type builtin --logo arch2 --logo-padding 0 && yay -Syu --noconfirm' && read",
-    // "on-click-right": "$HOME/.local/share/bin/update",
-	"tooltip": true,
-	"tooltip-format": "packages have update available.",
-  },
+	"custom/update": {
+		"format": "<big></big>  {}", // "<big>󰮯</big>"
+		"interval": 7200, // 2 hour = 2 * 60 * 60 => (hour) * (toMinutes) * (toSeconds)
+		"exec-if": "[[ $(checkupdates) ]]",
+		"exec": "num=$(checkupdates | wc -l) && notify-send '󰮯 \tPacman' \"$num\tpackage have update available.\"",
+		"on-click": "kitty --app-id=custom-updater sh -c 'sudo pacman -Syu --noconfirm' && read",
+		"tooltip": true,
+		"tooltip-format": "packages have update available."
+	}
 }
