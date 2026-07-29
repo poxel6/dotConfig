@@ -1,25 +1,67 @@
 # My Linux Configurations
 
-- **WM**: [Hyprland](https://github.com/hyprwm/Hyprland)  
-- **Shell**: [Zsh](https://www.zsh.org/)  
-- **Prompt**: [Starship](https://starship.rs)  
-- **Terminal**: [Kitty](https://github.com/ohmyzsh/ohmyzsh)  
-- **Bar**: [Waybar](https://github.com/Alexays/Waybar)  
-- **Notification Daemon**: [Swaync](https://github.com/ErikReider/SwayNotificationCenter)  
-- **Launcher**: [Rofi-wayland](https://github.com/in0ni/rofi-wayland)  
-- **File Manager**: [Nemo](https://github.com/linuxmint/nemo)  
-- **Lockscreen**: [Hyprlock](https://github.com/hyprwm/hyprlock)  
-- **Display manager**: [Ly](https://github.com/fairyglade/ly)  
-- **Wallpaper Daemon**: [Swww](https://github.com/LGFae/swww)
-
 ## Installation
 #### Requirements
+
+```sh
+sudo pacman -Syu \
+base-devel tmux ncdu jq git-delta \
+grub grub-btrfs intel-ucode snap-pac snapper \
+emacs neovim \
+go rustup fasm gf2 \
+man-db man-pages \
+pacman-contrib\
+fd fastfetch ripgrep eza fzf stow tokei bat cliphist \
+--noconfirm
+```
+
+Drivers
+```sh
+sudo pacman -Syu \
+fuse3 ntfs-3g \
+mesa vulkan-headers vulkan-mesa-layers vulkan-radeon \
+lib32-gamemode lib32-mangohud lib32-vulkan-radeon \
+mangohud gamemode gamescope cpupower \
+schedtool scx-scheds scx-tools \
+--noconfirm
+```
+
+```sh
+sudo pacman -Syu \
+pipewire pipewire-pulse pwvucontrol wireplumber mpv mpv-mpris \
+--noconfirm
+```
+
+Hyprland
+```sh
+sudo pacman -S \
+hyprcursor hypridle hyprland hyprlock hyprshade hyprpolkitagent xdg-desktop-portal-hyprland \
+wf-recorder btop imv nemo ly awww swaync swayosd \
+nwg-look pastel network-manager-applet \
+starship android-file-transfer keyd \
+--noconfirm
+```
+
+
+AUR
 ```sh
 yay -S \
-fd ripgrep tmux prismlauncher \
-stow btop eza ncdu fzf grimblast-git \
-imv pwvucontrol nemo fuse3 ntfs-3g \
-zoxide tokei clapper jq nodejs npm pnpm \
-ly go rustup localsend-bin git-delta \
+grimblast-git \
+heroic-games-launcher-bin ludusavi-bin \
+vkd3d-proton-bin dxvk-bin \
 --noconfirm
+```
+
+
+Walker
+```sh
+walker
+elephant-bitwarden-bin
+elephant-calc-bin
+elephant-clipboard-bin
+elephant-desktopapplications-bin
+elephant-files-bin
+elephant-providerlist-bin
+elephant-runner-bin
+elephant-symbols-bin
 ```
