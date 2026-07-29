@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 CODEC=hevc_vaapi
 FPS=60
 MONITOR="DP-2"
