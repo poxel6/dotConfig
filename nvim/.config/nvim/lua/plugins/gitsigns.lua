@@ -9,5 +9,7 @@ return {
 		vim.keymap.set("n", "<leader>gh", gs.preview_hunk_inline)
 		vim.keymap.set("n", "<leader>gb", gs.blame_line)
 		vim.keymap.set("n", "<leader>gd", gs.diffthis)
+		vim.keymap.set("n", "<leader>gs", gs.stage_hunk)
+
 	end,
 }
