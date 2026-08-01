@@ -237,10 +237,21 @@
     display-buffer-pop-up-window)
    (inhibit-same-window . t)))
 
+(setq eglot-inlay-hints-mode nil)
 (use-package eglot
   :ensure nil
   :hook ((c-mode . eglot-ensure)
          (c++-mode . eglot-ensure)))
+
+(use-package eldoc-box
+  :ensure t
+  :custom
+  (eldoc-box-max-pixel-width 800)
+  :bind
+  (:map eglot-mode-map
+	("C-h ." . eldoc-box-help-at-point)))
+
+(load-file "~/dotConfig/emacs/.config/emacs/completion.el")
 
 (use-package gruber-darker-theme
   :ensure t
@@ -260,23 +271,6 @@
   (define-key completion-preview-active-mode-map
               (kbd "M-p")
               #'completion-preview-prev-candidate))
-
-(use-package cape
-  :ensure t
-  :init
-(add-hook 'prog-mode-hook
-            (lambda ()
-              (add-hook 'completion-at-point-functions
-                        #'cape-dabbrev nil t))))
-
-(use-package orderless
-  :ensure t
-  :custom
-  (completion-styles '(orderless basic))
-  (completion-category-defaults nil)
-  (completion-category-overrides
-   '((eglot (styles orderless basic))
-     (file (styles partial-completion)))))
 
 (use-package which-key
   :ensure t
