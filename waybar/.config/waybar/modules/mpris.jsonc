@@ -9,7 +9,7 @@
 		"status-icons": {
 			"paused": "⏸"
 		},
-		"tooltip-format": "{player_icon} {artist}: {title}"
-		// "ignored-players": ["firefox"]
+		"tooltip-format": "{player_icon} {artist}: {title}",
+		"ignored-players": ["brave"]
 	}
 }

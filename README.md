@@ -1,6 +1,15 @@
 # My Linux Configurations
 
 ## Installation
+Symlinks are setup with `stow`
+Install `stow` first
+<module> can be any of the directories inside the repe
+
+```sh
+git clone https://poxel6/dotConfig
+cd dotConfig
+stow <module>
+```
 #### Requirements
 
 ```sh

@@ -13,6 +13,8 @@ clone_repo_if_dont_exist() {
 clone_repo_if_dont_exist poxel6/clox
 clone_repo_if_dont_exist poxel6/twitter-clone
 clone_repo_if_dont_exist poxel6/newj
+clone_repo_if_dont_exist poxel6/poxel6
 clone_repo_if_dont_exist desktop-pets/pets
 clone_repo_if_dont_exist poxel6/webserver-in-assembly
 clone_repo_if_dont_exist poxel6/psychology-website
+clone_repo_if_dont_exist poxel6/aoc-2025-C

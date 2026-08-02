@@ -1,0 +1,21 @@
+hl.on("hyprland.start", function()
+	hl.exec_cmd("waybar")
+	hl.exec_cmd("nm-applet")
+	hl.exec_cmd("awww-daemon")
+	hl.exec_cmd("hypridle")
+	hl.exec_cmd("hyprsunset")
+	hl.exec_cmd("swaync")
+	hl.exec_cmd("elephant")
+	hl.exec_cmd("waypaper --restore --no-post-command")
+	hl.exec_cmd("swayosd-server")
+	hl.exec_cmd("walker --gapplication-service")
+
+	-- Consider making these systemd user services instead.
+	hl.exec_cmd("sudo systemctl start keyd")
+
+	hl.exec_cmd("/usr/bin/kdeconnectd")
+	hl.exec_cmd("mpd")
+	hl.exec_cmd("wl-paste --watch cliphist store")
+	hl.exec_cmd("keyd-application-mapper -d")
+	hl.exec_cmd("gamemoded -d")
+end)

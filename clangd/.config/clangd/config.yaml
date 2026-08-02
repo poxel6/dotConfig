@@ -1,15 +1,21 @@
 CompileFlags:
   Add: [
-      -I../include,
-      -DLOCAL,
-      -Wall,
-      -Wconversion,
-      -Wextra,
-      -Wshadow,
-      -Wfloat-equal,
-      -Wno-unused-const-variable,
-      -Wno-sign-conversion,
-    ]
+    -I../include,
+    -DLOCAL,
+    -Wall,
+    -Wextra,
+    -Wpedantic,
+    -Wconversion,
+    -Wsign-conversion,
+    -Wshadow,
+    -Wcast-qual,
+    -Wcast-align,
+    -Wformat=2,
+    -Wundef,
+    -Wstrict-prototypes,
+    -Wmissing-prototypes,
+    -Werror
+  ]
 
 Diagnostics:
   UnusedIncludes: Strict

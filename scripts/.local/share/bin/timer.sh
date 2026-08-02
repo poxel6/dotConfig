@@ -92,6 +92,18 @@ trigger_update() {
     done
 }
 
+send_phone_notification() {
+    local title="$1"
+    local message="$2"
+
+    local device_id
+    device_id=$(kdeconnect-cli -a --id-only 2>/dev/null | head -n 1)
+
+    if [ -n "$device_id" ]; then
+        kdeconnect-cli -d "$device_id" --ping-msg "$title: $message" >/dev/null 2>&1 &
+    fi
+}
+
 # CONTROLLER
 if [ -n "$1" ]; then
     if [ ! -f "$STATE_FILE" ]; then init_state; fi
@@ -166,6 +178,7 @@ if [ -n "$1" ]; then
                     # Skip work, go to break
                     play_sound "$SOUND_BREAK_START"
                     notify-send -u normal -t 3500 -i tea "Pomodoro" "Work Session Skipped! Starting Break." &
+					send_phone_notification "Timer" "Timer Finished!"
                     NEW_STAGE=1; NEW_SET=$(( P_BREAK_LEN * 60 ))
                     if [ "$POMO_AUTO_BREAK" = true ]; then
                         WS "POMO_MSG" "$NEW_SET" "$NOW" "0" "$NOW" "$PRESET_IDX" "1" "$NEW_STAGE" "$P_CURRENT" "$P_TOTAL" "$P_WORK_LEN" "$P_BREAK_LEN" "$P_EDIT_FOCUS"
@@ -510,6 +523,7 @@ while true; do
                         else
                             play_sound "$SOUND_WORK_START"
                             notify-send -u normal -t 3500 -i clock "Pomodoro" "Break Finished! Back to work." &
+							send_phone_notification "Pomodoro" "Break Finished! Back to work."
                             NEW_STAGE=0; NEW_SET=$(( P_WORK_LEN * 60 ))
                             if [ "$POMO_AUTO_WORK" = true ]; then
                                 WS "POMO_MSG" "$NEW_SET" "$NOW" "0" "$NOW" "$PRESET_IDX" "1" "$NEW_STAGE" "$NEW_CURRENT" "$P_TOTAL" "$P_WORK_LEN" "$P_BREAK_LEN" "$P_EDIT_FOCUS"
