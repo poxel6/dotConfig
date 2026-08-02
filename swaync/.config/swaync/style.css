@@ -1,0 +1,289 @@
+/*
+ * SwayNC — One Dark / Hyprland
+ * Matching Waybar palette
+ */
+
+/* ─────────────────────────────────────────────
+   Palette
+   ───────────────────────────────────────────── */
+
+@define-color bar-bg #121212;
+
+@define-color main-fg #ABB2BF;
+@define-color main-bg #121212;
+
+@define-color bg #282C34;
+
+@define-color red #E06C75;
+@define-color lime #98C379;
+@define-color yellow #E5C07B;
+@define-color cyan #61AFEF;
+@define-color purple #C678DD;
+@define-color blue #56B6C2;
+@define-color fg #ABB2BF;
+@define-color grey #5C6370;
+@define-color white #FFFFFF;
+
+
+/* ─────────────────────────────────────────────
+   Global
+   ───────────────────────────────────────────── */
+
+* {
+    font-family: "JetBrainsMono Nerd Font";
+    font-size: 13px;
+}
+
+
+/* ─────────────────────────────────────────────
+   Notification Popups
+   ───────────────────────────────────────────── */
+
+.notification-window {
+    background: transparent;
+}
+
+.notification {
+    background: @bg;
+    border: 1px solid @grey;
+    border-radius: 8px;
+    margin: 6px;
+    padding: 0;
+}
+
+.notification:hover {
+    background: #30343D;
+}
+
+.notification-content {
+    padding: 10px;
+    background: transparent;
+}
+
+.summary {
+    color: @main-fg;
+    font-weight: bold;
+}
+
+.body {
+    color: @fg;
+}
+
+.time {
+    color: @grey;
+    font-size: 11px;
+}
+
+
+/* ─────────────────────────────────────────────
+   Notification Icons
+   ───────────────────────────────────────────── */
+
+.image {
+    border-radius: 6px;
+}
+
+.app-icon {
+    margin: 4px;
+}
+
+
+/* ─────────────────────────────────────────────
+   Close Button
+   ───────────────────────────────────────────── */
+
+.close-button {
+    background: transparent;
+    color: @grey;
+    border: none;
+    border-radius: 6px;
+    box-shadow: none;
+    padding: 4px;
+}
+
+.close-button:hover {
+    background: @red;
+    color: @white;
+}
+
+
+/* ─────────────────────────────────────────────
+   Critical Notifications
+   ───────────────────────────────────────────── */
+
+.notification.critical {
+    border-color: @red;
+}
+
+.notification.critical .summary {
+    color: @red;
+}
+
+
+/* ─────────────────────────────────────────────
+   Control Center
+   ───────────────────────────────────────────── */
+
+.control-center {
+    background: @bar-bg;
+    border: 1px solid @bg;
+    border-radius: 10px;
+    padding: 12px;
+}
+
+
+/* ─────────────────────────────────────────────
+   Control Center Title
+   ───────────────────────────────────────────── */
+
+.widget-title {
+    color: @main-fg;
+    font-size: 15px;
+    font-weight: bold;
+    margin: 4px 6px 10px 6px;
+}
+
+.widget-title > button {
+    background: @bg;
+    color: @grey;
+    border: none;
+    border-radius: 6px;
+    padding: 5px 10px;
+}
+
+.widget-title > button:hover {
+    background: #30343D;
+    color: @main-fg;
+}
+
+
+/* ─────────────────────────────────────────────
+   Do Not Disturb
+   ───────────────────────────────────────────── */
+
+.widget-dnd {
+    margin: 4px 6px;
+}
+
+.widget-dnd > switch {
+    background: @bg;
+    border: 1px solid @grey;
+    border-radius: 6px;
+}
+
+.widget-dnd > switch:checked {
+    background: @purple;
+}
+
+
+/* ─────────────────────────────────────────────
+   Buttons
+   ───────────────────────────────────────────── */
+
+.widget-buttons-grid {
+    margin: 6px;
+}
+
+.widget-buttons-grid > flowbox > flowboxchild > button {
+    background: @bg;
+    color: @main-fg;
+    border: 1px solid transparent;
+    border-radius: 7px;
+    min-height: 38px;
+}
+
+.widget-buttons-grid > flowbox > flowboxchild > button:hover {
+    background: #30343D;
+    color: @blue;
+    border-color: @blue;
+}
+
+.widget-buttons-grid > flowbox > flowboxchild > button:checked {
+    background: @purple;
+    color: @white;
+}
+
+
+/* ─────────────────────────────────────────────
+   MPRIS
+   ───────────────────────────────────────────── */
+
+.widget-mpris {
+    background: @bg;
+    border-radius: 8px;
+    margin: 6px;
+    padding: 10px;
+}
+
+.widget-mpris-player {
+    padding: 6px;
+}
+
+.widget-mpris-title {
+    color: @main-fg;
+    font-weight: bold;
+}
+
+.widget-mpris-subtitle {
+    color: @grey;
+}
+
+.widget-mpris > box > button {
+    background: transparent;
+    color: @main-fg;
+    border-radius: 6px;
+    border: none;
+}
+
+.widget-mpris > box > button:hover {
+    background: #30343D;
+    color: @purple;
+}
+
+
+/* ─────────────────────────────────────────────
+   Scrollbar
+   ───────────────────────────────────────────── */
+
+scrollbar {
+    min-width: 0;
+    min-height: 0;
+}
+
+scrollbar slider {
+    min-width: 0;
+    min-height: 0;
+    background: transparent;
+}
+
+/* ─────────────────────────────────────────────
+   Notification Rows
+   ───────────────────────────────────────────── */
+
+.notification-row {
+    outline: none;
+}
+
+.notification-row:focus,
+.notification-row:hover {
+    background: transparent;
+}
+
+
+/* ─────────────────────────────────────────────
+   Low Priority
+   ───────────────────────────────────────────── */
+
+.low {
+    opacity: 0.85;
+}
+
+
+/* ─────────────────────────────────────────────
+   Normal Priority
+   ───────────────────────────────────────────── */
+
+.normal {
+    opacity: 1;
+}
+
