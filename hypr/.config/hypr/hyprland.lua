@@ -58,11 +58,6 @@ hl.config({
 	scrolling = {
 		fullscreen_on_one_column = true,
 	},
-
-	misc = {
-		force_default_wallpaper = -1, -- Set to 0 or 1 to disable the anime mascot wallpapers
-		disable_hyprland_logo = false, -- If true disables the random hyprland logo / anime girl background. :(
-	},
 })
 
 hl.config({
@@ -90,8 +85,8 @@ hl.workspace_rule({
 	on_created_empty = "kitty",
 	gaps_out = {
 		top = 20,
-		left = 960,
-		right = 0,
+		left = 20,
+		right = 20,
 		bottom = 20,
 	},
 })
@@ -120,3 +115,4 @@ require("window-rule")
 require("binds")
 require("startup")
 require("animations")
+require("events")

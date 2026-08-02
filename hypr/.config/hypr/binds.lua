@@ -7,11 +7,12 @@ local mainMod = "SUPER" -- Sets "Windows" key as main modifier
 
 local terminal = "kitty"
 local fileManager = "nemo"
-local wallpaper = "waytrogen"
+local wallpaper = 'find "$HOME/Pictures/Wallpapers" -type f | shuf -n 1 | xargs "$HOME/.config/hypr/scripts/wallpaper.sh"'
 local menu = "walker"
 local bar = "waybar"
 local browser = "brave"
 local scripts = "$HOME/.local/share/bin/"
+local screenshot = "$HOME/.config/hypr/scripts/screenshot.sh"
 
 local toggle = function(app)
 	return "pgrep -x " .. app .. " >/dev/null && killall " .. app .. " || " .. app
@@ -26,7 +27,7 @@ hl.bind(main .. " + P", hl.dsp.exec_cmd("hyprctl dispatch pin"))
 hl.bind(main .. " + M", hl.dsp.exec_cmd("hyprlock"))
 hl.bind(main .. " + E", hl.dsp.exec_cmd(fileManager .. " -g 1280x720"))
 hl.bind(main .. " + D", hl.dsp.exec_cmd("swaync-client -t -sw"))
-hl.bind(main .. " + Y", hl.dsp.exec_cmd(toggle(wallpaper)))
+hl.bind(main .. " + Y", hl.dsp.exec_cmd(wallpaper))
 hl.bind(main .. " + O", hl.dsp.exec_cmd("$HOME/.local/share/bin/record"))
 hl.bind(main .. " + X", hl.dsp.exec_cmd("$HOME/.local/share/bin/rofi-music"))
 hl.bind(main .. " + Z", hl.dsp.exec_cmd("walker -m symbols"))
@@ -52,8 +53,8 @@ hl.bind("F12", require("gamemode").toggle_gamemode)
 hl.bind(main .. " + N", hl.dsp.workspace.toggle_special("special"))
 hl.bind(main .. " + SHIFT + N", hl.dsp.window.move({ workspace = "special:special" }))
 
-hl.bind(main .. " + S", hl.dsp.exec_cmd(scripts .. "screenshot"))
-hl.bind(main .. " + SHIFT + S", hl.dsp.exec_cmd(scripts .. "screenshot Frozen"))
+hl.bind(main .. " + S", hl.dsp.exec_cmd(screenshot), { locked = true })
+hl.bind(main .. " + SHIFT + S", hl.dsp.exec_cmd(screenshot .. " Monitor"), { locked = true })
 
 hl.bind(main .. " + H", hl.dsp.focus({ direction = "left" }))
 hl.bind(main .. " + L", hl.dsp.focus({ direction = "right" }))
