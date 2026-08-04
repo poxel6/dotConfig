@@ -7,16 +7,27 @@ local mainMod = "SUPER" -- Sets "Windows" key as main modifier
 
 local terminal = "kitty"
 local fileManager = "nemo"
-local wallpaper = 'find "$HOME/Pictures/Wallpapers" -type f | shuf -n 1 | xargs "$HOME/.config/hypr/scripts/wallpaper.sh"'
 local menu = "walker"
 local bar = "waybar"
 local browser = "brave"
 local scripts = "$HOME/.local/share/bin/"
 local screenshot = "$HOME/.config/hypr/scripts/screenshot.sh"
 
+---@param args string
+local wallpaper = function(args)
+	local scripts_path = "$HOME/.config/hypr/scripts/"
+	local wallpaper_script = scripts_path .. "wallpaper.sh"
+	local wallpaper_picker = scripts_path .. "wallpaper-picker.sh"
+	----- %s $(%s %s) -> wallpaper_script $(wallpaper_picker args)
+	return string.format("%s $(%s %s)", wallpaper_script, wallpaper_picker, args)
+end
+
 local toggle = function(app)
 	return "pgrep -x " .. app .. " >/dev/null && killall " .. app .. " || " .. app
 end
+
+hl.bind(main .. " + Y", hl.dsp.exec_cmd(wallpaper("random")))
+hl.bind(main .. " + SHIFT + Y", hl.dsp.exec_cmd(wallpaper("")))
 
 hl.bind(main .. " + T", hl.dsp.exec_cmd(terminal))
 hl.bind(main .. " + B", hl.dsp.exec_cmd(browser))
@@ -27,7 +38,6 @@ hl.bind(main .. " + P", hl.dsp.exec_cmd("hyprctl dispatch pin"))
 hl.bind(main .. " + M", hl.dsp.exec_cmd("hyprlock"))
 hl.bind(main .. " + E", hl.dsp.exec_cmd(fileManager .. " -g 1280x720"))
 hl.bind(main .. " + D", hl.dsp.exec_cmd("swaync-client -t -sw"))
-hl.bind(main .. " + Y", hl.dsp.exec_cmd(wallpaper))
 hl.bind(main .. " + O", hl.dsp.exec_cmd("$HOME/.local/share/bin/record"))
 hl.bind(main .. " + X", hl.dsp.exec_cmd("$HOME/.local/share/bin/rofi-music"))
 hl.bind(main .. " + Z", hl.dsp.exec_cmd("walker -m symbols"))
@@ -45,7 +55,6 @@ hl.bind(
 )
 
 hl.bind(main .. " + SHIFT + W", hl.dsp.exec_cmd(scripts .. "configure_waybar"))
-hl.bind(main .. " + SHIFT + Y", hl.dsp.exec_cmd(wallpaper .. " --random"))
 
 ---@diagnostic disable-next-line: unresolved-require
 hl.bind("F12", require("gamemode").toggle_gamemode)

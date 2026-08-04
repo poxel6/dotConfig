@@ -1,0 +1,233 @@
+/*
+ * wallpaper-picker.rasi
+ *
+ * Visual wallpaper picker
+ *
+ * Layout:
+ *
+ *     [ image ] [ image ] [ image ] [ image ]
+ *     filename   filename   filename   filename
+ *     [category] [category] [category] [category]
+ *
+ * Large thumbnails, compact labels.
+ */
+
+* {
+    bg: #0d0d0d77;
+    bg0: rgba(255,255,255, 0%);
+    hover: #151721bf;
+    text: #f5f5f5dd;
+    entry: #f5f5f5dd;
+    placeholder: #acacac69;
+    border: transparent;
+    input-bottom-border: #272727dd;
+
+    fg0: #262b34d9;
+    fg1: #e1e1e1;
+    scrollbar: #3a3f4a;
+
+    background-color: @bg0;
+    text-color: @text;
+    border-color: @border;
+
+    font: "JetBrainsMono Nerd Font 12";
+}
+
+/*
+ * Large, nearly fullscreen window.
+ */
+window {
+    width: 95%;
+    height: 95%;
+
+    location: center;
+    anchor: center;
+
+    background-color: @bg;
+    border: 0px;
+    border-radius: 12px;
+
+    padding: 24px;
+
+    children: [
+        mainbox
+    ];
+}
+
+/*
+ * Main vertical layout:
+ *
+ *     inputbar
+ *     listview
+ */
+mainbox {
+    orientation: vertical;
+    spacing: 20px;
+
+    children: [
+        inputbar,
+        listview
+    ];
+}
+
+/*
+ * Search bar.
+ */
+inputbar {
+    background-color: @fg0;
+
+    border: 0px;
+    border-radius: 8px;
+
+    padding: 12px 16px;
+
+    spacing: 12px;
+
+    children: [
+        prompt,
+        entry
+    ];
+}
+
+prompt {
+    text-color: @text;
+}
+
+entry {
+    text-color: @text;
+
+    placeholder: "Search wallpapers...";
+    placeholder-color: @placeholder;
+
+    cursor-color: @text;
+}
+
+/*
+ * Thumbnail grid.
+ *
+ * 5 columns gives us substantially larger images
+ * than the previous layout while still fitting
+ * a good number of wallpapers on screen.
+ */
+listview {
+    layout: vertical;
+
+    columns: 5;
+    lines: 3;
+
+    flow: horizontal;
+
+    fixed-columns: true;
+    fixed-height: true;
+
+    spacing: 20px;
+
+    scrollbar: true;
+    scrollbar-width: 6px;
+
+    background-color: transparent;
+}
+
+/*
+ * Each wallpaper card:
+ *
+ *     ┌──────────────┐
+ *     │              │
+ *     │   thumbnail  │
+ *     │              │
+ *     ├──────────────┤
+ *     │ filename.jpg │
+ *     │   [category]  │
+ *     └──────────────┘
+ */
+element {
+    orientation: vertical;
+
+    children: [
+        element-icon,
+        element-text
+    ];
+
+    padding: 10px;
+
+    spacing: 8px;
+
+    background-color: @fg0;
+
+    border: 2px;
+    border-color: transparent;
+
+    border-radius: 10px;
+}
+
+/*
+ * Selected wallpaper.
+ */
+element selected {
+    background-color: @hover;
+
+    border: 2px;
+    border-color: @fg1;
+
+    border-radius: 10px;
+}
+
+/*
+ * Make the actual wallpaper thumbnail BIG.
+ *
+ * The image gets most of the card's vertical space.
+ */
+element-icon {
+    size: 180px;
+
+    horizontal-align: 0.5;
+    vertical-align: 0.5;
+
+    background-color: transparent;
+}
+
+/*
+ * Text underneath the image.
+ */
+element-text {
+    horizontal-align: 0.5;
+    vertical-align: 0.5;
+
+    text-color: @entry;
+
+    padding: 4px 6px;
+
+    highlight: none;
+}
+
+/*
+ * Scrollbar.
+ */
+scrollbar {
+    handle-color: @scrollbar;
+    background-color: transparent;
+
+    width: 6px;
+}
+
+/*
+ * Remove unnecessary message area.
+ */
+message {
+    background-color: transparent;
+}
+
+/*
+ * Hide unused elements.
+ */
+num-rows {
+    enabled: false;
+}
+
+num-filtered-rows {
+    enabled: false;
+}
+
+case-indicator {
+    enabled: false;
+}
