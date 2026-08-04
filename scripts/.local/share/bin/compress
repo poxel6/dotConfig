@@ -1,8 +1,6 @@
 ffmpeg -i "$1" \
-	-map 0 \
 	-c:v libx265 \
-	-preset slow \
-	-crf 16 \
-	-c:a copy \
-	-movflags +faststart \
-	"$2.mp4"
+	-preset medium \
+	-crf 24 \
+	-c:a aac -b:a 128k \
+	"$2.compressed.mp4"
