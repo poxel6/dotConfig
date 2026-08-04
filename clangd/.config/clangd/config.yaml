@@ -4,17 +4,24 @@ CompileFlags:
     -DLOCAL,
     -Wall,
     -Wextra,
-    -Wpedantic,
     -Wconversion,
     -Wsign-conversion,
+    -Wunreachable-code
     -Wshadow,
     -Wcast-qual,
     -Wcast-align,
     -Wformat=2,
     -Wundef,
-    -Wstrict-prototypes,
     -Wmissing-prototypes,
-    -Werror
+    -Wattributes,
+    -Wimplicit-int,
+    -Wimplicit-function-declaration,
+    -Wincompatible-pointer-types,
+    -Wint-conversion,
+    -Wmain,
+    -Wpointer-arith,
+    -Wpointer-sign,
+    -Wincompatible-pointer-types,
   ]
 
 Diagnostics:
