@@ -63,7 +63,8 @@ hl.bind(main .. " + N", hl.dsp.workspace.toggle_special("special"))
 hl.bind(main .. " + SHIFT + N", hl.dsp.window.move({ workspace = "special:special" }))
 
 hl.bind(main .. " + S", hl.dsp.exec_cmd(screenshot), { locked = true })
-hl.bind(main .. " + SHIFT + S", hl.dsp.exec_cmd(screenshot .. " Monitor"), { locked = true })
+hl.bind(main .. " + SHIFT + S", hl.dsp.exec_cmd(screenshot .. " Area"), { locked = true })
+hl.bind(main .. " + CTRL + S", hl.dsp.exec_cmd(screenshot .. " Monitor"), { locked = true })
 
 hl.bind(main .. " + H", hl.dsp.focus({ direction = "left" }))
 hl.bind(main .. " + L", hl.dsp.focus({ direction = "right" }))
