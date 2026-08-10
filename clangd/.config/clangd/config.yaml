@@ -29,6 +29,9 @@ Diagnostics:
 
 Completion:
   ArgumentLists: Delimiters
+  IncludeFixIts: true
+  HeaderInsertion: IWYU
+
 
 InlayHints:
   ParameterNames: true

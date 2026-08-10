@@ -1,6 +1,6 @@
---------------------------------------------------------------------------------
--- Layer Rules
---------------------------------------------------------------------------------
+--------------------------------
+--         Layer Rules        --
+--------------------------------
 
 hl.layer_rule({
 	name = "rofi-no-anim-and-blur",
@@ -20,38 +20,28 @@ hl.layer_rule({
 	no_anim = true,
 })
 
---------------------------------------------------------------------------------
--- Workspace Assignment Rules
---------------------------------------------------------------------------------
+--------------------------------
+-- Workspace Assignment Rules --
+--------------------------------
 
 hl.window_rule({
-	match = { class = "com.mitchellh.ghostty" },
+	match = { class = "Emacs" },
 	workspace = "1",
 })
 
 hl.window_rule({
-	match = { class = "zen" },
+	match = { class = "brave-browser" },
 	workspace = "2",
 })
 
 hl.window_rule({
-	match = { class = "intellij" },
-	workspace = "3",
-})
-
-hl.window_rule({
-	match = { class = "obsidian" },
-	workspace = "4",
-})
-
-hl.window_rule({
-	match = { class = "com.github.rafostar.Clapper" },
+	match = { class = "mpv" },
 	workspace = "5",
 })
 
---------------------------------------------------------------------------------
--- Floating Windows
---------------------------------------------------------------------------------
+--------------------------------
+--      Floating Windows      --
+--------------------------------
 
 hl.window_rule({
 	match = { class = "com.saivert.pwvucontrol" },
@@ -64,19 +54,7 @@ hl.window_rule({
 })
 
 hl.window_rule({
-	match = {
-		title = "Extension:(Bitwarden Password Manager) - Bitwarden - Zen Browser",
-	},
-	float = true,
-})
-
-hl.window_rule({
 	match = { class = "imv" },
-	float = true,
-})
-
-hl.window_rule({
-	match = { class = "org.Waytrogen.Waytrogen" },
 	float = true,
 })
 
@@ -86,29 +64,13 @@ hl.window_rule({
 })
 
 hl.window_rule({
-	match = { class = "Tk" },
-	float = true,
-})
-
-hl.window_rule({
 	match = { class = "org.kde.kdeconnect.daemon" },
 	float = true,
 })
 
-hl.window_rule({
-	match = { class = "custom-updater" },
-	float = true,
-})
-
-hl.window_rule({
-	match = { class = "custom-fastfetch" },
-	float = true,
-})
-
---------------------------------------------------------------------------------
--- Workspace → Monitor Binding
---------------------------------------------------------------------------------
-
+--------------------------------
+--          Workspace         --
+--------------------------------
 hl.workspace_rule({
 	workspace = "1",
 	monitor = "DP-2",
@@ -122,4 +84,14 @@ hl.workspace_rule({
 hl.workspace_rule({
 	workspace = "3",
 	monitor = "DP-2",
+})
+
+hl.workspace_rule({
+	workspace = "4",
+	monitor = "DP-3",
+})
+
+hl.workspace_rule({
+	workspace = "6",
+	monitor = "DP-3",
 })
