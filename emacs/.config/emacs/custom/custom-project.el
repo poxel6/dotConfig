@@ -65,10 +65,3 @@
 (add-hook 'project-find-functions #'my-poxel6-project-root -90)
 (add-hook 'find-file-hook #'my-remember-poxel6-project)
 
-(defun my-project-recompile ()
-  (interactive)
-  (let ((default-directory
-	 (project-root (project-current))))
-    (recompile)))
-
-(global-set-key (kbd "M-m") #'my-project-recompile)
