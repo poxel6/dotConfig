@@ -46,6 +46,9 @@ hl.bind(main .. " + R", hl.dsp.exec_cmd("hyprctl switchxkblayout current next"))
 hl.bind(main .. " + Q", hl.dsp.window.close())
 hl.bind(main .. " + V", hl.dsp.window.float({ action = "toggle" }))
 
+hl.bind(main .. "+ TAB",       hl.dsp.group.next())
+hl.bind(main .. "+ SHIFT + TAB", hl.dsp.group.prev())
+
 hl.bind(
 	main .. " + RETURN",
 	hl.dsp.window.fullscreen({

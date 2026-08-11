@@ -35,6 +35,14 @@ hl.window_rule({
 })
 
 hl.window_rule({
+    name = "brave-group",
+    match = {
+        class = "^brave-browser$",
+    },
+    group = "set always",
+})
+
+hl.window_rule({
 	match = { class = "mpv" },
 	workspace = "5",
 })

@@ -48,6 +48,30 @@ hl.config({
 	binds = {
 		movefocus_cycles_fullscreen = true,
 	},
+
+	group = {
+		col = {
+			border_active = "rgba(ffffff33)",
+			border_inactive = "rgba(ffffff33)",
+			border_locked_active = "rgba(ffffff33)",
+			border_locked_inactive = "rgba(ffffff33)",
+		},
+
+		groupbar = {
+			enabled = true,
+			height = 2,
+			gradients = false,
+			font_size = 1,
+			indicator_height = 2,
+			text_color = "rgba(ffffff00)",
+			col = {
+				active = "rgba(ffffff00)",
+				inactive = "rgba(ffffff00)",
+				locked_active = "rgba(ffffff00)",
+				locked_inactive = "rgba(ffffff00)",
+			},
+		},
+	},
 })
 
 hl.config({
