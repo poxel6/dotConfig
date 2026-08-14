@@ -65,7 +65,7 @@
   :ensure t
   :custom
   (clang-format-style
-   (concat "file:" (expand-file-name "~/.config/clang-format/.clang-format")))
+   "{BasedOnStyle: Google, AlignArrayOfStructures: Left, IndentWidth: 4, AllowShortFunctionsOnASingleLine: None, AllowShortBlocksOnASingleLine: Never, AllowShortIfStatementsOnASingleLine: Never, AllowShortLoopsOnASingleLine: false, AllowShortEnumsOnASingleLine: false, PointerAlignment: Left, IndentCaseLabels: true}")
   :bind
   (("C-c f" . clang-format-buffer)))
 
