@@ -20,7 +20,6 @@
 		"./modules/timer.jsonc",
 		"./modules/update.jsonc",
 		"./modules/wireplumber.jsonc",
-		"./modules/update.jsonc",
 		"./modules/notification.jsonc",
 		"./modules/clock.jsonc",
 		"./modules/network.jsonc",

@@ -1,28 +1,29 @@
 /*
- * SwayNC — One Dark / Hyprland
- * Matching Waybar palette
+ * SwayNC — Ayu Dark
+ * Matching Waybar palette & look
  */
 
 /* ─────────────────────────────────────────────
    Palette
    ───────────────────────────────────────────── */
 
-@define-color bar-bg #121212;
+@define-color bg #0B0E14;
+@define-color main-bg #11151C;
+@define-color hover #1B1F28;
+@define-color border #1F232C;
+@define-color selection #253340;
 
-@define-color main-fg #ABB2BF;
-@define-color main-bg #121212;
+@define-color main-fg #BFBDB6;
+@define-color fg #BFBDB6;
+@define-color grey #565B66;
 
-@define-color bg #282C34;
-
-@define-color red #E06C75;
-@define-color lime #98C379;
-@define-color yellow #E5C07B;
-@define-color cyan #61AFEF;
-@define-color purple #C678DD;
-@define-color blue #56B6C2;
-@define-color fg #ABB2BF;
-@define-color grey #5C6370;
-@define-color white #FFFFFF;
+@define-color red #F07178;
+@define-color lime #AAD94C;
+@define-color yellow #FFB454;
+@define-color cyan #95E6CB;
+@define-color purple #D2A6FF;
+@define-color blue #59C2FF;
+@define-color white #D9D7CE;
 
 
 /* ─────────────────────────────────────────────
@@ -30,7 +31,7 @@
    ───────────────────────────────────────────── */
 
 * {
-    font-family: "JetBrainsMono Nerd Font";
+    font-family: "Inter Variable", "Hack Nerd Font Mono";
     font-size: 13px;
 }
 
@@ -44,19 +45,21 @@
 }
 
 .notification {
-    background: @bg;
-    border: 1px solid @grey;
-    border-radius: 8px;
+    background: @main-bg;
+    border: 1px solid @border;
+    border-radius: 12px;
     margin: 6px;
-    padding: 0;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+    transition: background 0.2s ease, border-color 0.2s ease;
 }
 
 .notification:hover {
-    background: #30343D;
+    background: @hover;
+    border-color: @selection;
 }
 
 .notification-content {
-    padding: 10px;
+    padding: 14px;
     background: transparent;
 }
 
@@ -67,6 +70,7 @@
 
 .body {
     color: @fg;
+    line-height: 1.4;
 }
 
 .time {
@@ -80,11 +84,12 @@
    ───────────────────────────────────────────── */
 
 .image {
-    border-radius: 6px;
+    background: @bg;
+    border-radius: 10px;
 }
 
 .app-icon {
-    margin: 4px;
+    margin: 6px;
 }
 
 
@@ -93,12 +98,15 @@
    ───────────────────────────────────────────── */
 
 .close-button {
-    background: transparent;
+    background: @bg;
     color: @grey;
     border: none;
-    border-radius: 6px;
+    border-radius: 50%;
     box-shadow: none;
     padding: 4px;
+    min-width: 22px;
+    min-height: 22px;
+    transition: background 0.2s ease, color 0.2s ease;
 }
 
 .close-button:hover {
@@ -125,10 +133,11 @@
    ───────────────────────────────────────────── */
 
 .control-center {
-    background: @bar-bg;
-    border: 1px solid @bg;
-    border-radius: 10px;
-    padding: 12px;
+    background: @bg;
+    border: 1px solid @border;
+    border-radius: 12px;
+    padding: 14px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
 }
 
 
@@ -144,16 +153,18 @@
 }
 
 .widget-title > button {
-    background: @bg;
+    background: @main-bg;
     color: @grey;
-    border: none;
-    border-radius: 6px;
-    padding: 5px 10px;
+    border: 1px solid @border;
+    border-radius: 8px;
+    padding: 5px 12px;
+    transition: all 0.2s ease;
 }
 
 .widget-title > button:hover {
-    background: #30343D;
+    background: @hover;
     color: @main-fg;
+    border-color: @purple;
 }
 
 
@@ -165,14 +176,33 @@
     margin: 4px 6px;
 }
 
+.widget-dnd > label {
+    color: @main-fg;
+}
+
 .widget-dnd > switch {
     background: @bg;
-    border: 1px solid @grey;
-    border-radius: 6px;
+    border: 1px solid @border;
+    border-radius: 14px;
+    transition: all 0.2s ease;
 }
 
 .widget-dnd > switch:checked {
     background: @purple;
+    border-color: @purple;
+}
+
+.widget-dnd > switch slider {
+    background: @main-fg;
+    border-radius: 50%;
+    min-width: 16px;
+    min-height: 16px;
+    margin: 2px;
+    box-shadow: none;
+}
+
+.widget-dnd > switch:checked slider {
+    background: @white;
 }
 
 
@@ -184,23 +214,50 @@
     margin: 6px;
 }
 
-.widget-buttons-grid > flowbox > flowboxchild > button {
-    background: @bg;
+.widget-buttons-grid flowboxchild > button {
+    background: @main-bg;
     color: @main-fg;
-    border: 1px solid transparent;
-    border-radius: 7px;
-    min-height: 38px;
+    font-family: "Hack Nerd Font Mono";
+    font-size: 19px;
+    border: 1px solid @border;
+    border-radius: 10px;
+    min-height: 40px;
+    transition: all 0.2s ease;
 }
 
-.widget-buttons-grid > flowbox > flowboxchild > button:hover {
-    background: #30343D;
+.widget-buttons-grid flowboxchild > button:hover {
+    background: @hover;
     color: @blue;
     border-color: @blue;
 }
 
-.widget-buttons-grid > flowbox > flowboxchild > button:checked {
+.widget-buttons-grid flowboxchild > button:checked,
+.widget-buttons-grid flowboxchild > button.toggle:checked {
     background: @purple;
     color: @white;
+    border-color: @purple;
+}
+
+
+/* ─────────────────────────────────────────────
+   Volume & Backlight
+   ───────────────────────────────────────────── */
+
+.widget-volume label,
+.widget-backlight label {
+    font-family: "Hack Nerd Font Mono";
+    font-size: 19px;
+    color: @main-fg;
+}
+
+.widget-volume row image,
+.widget-backlight row image {
+    -gtk-icon-size: 22px;
+}
+
+.widget-volume scale,
+.widget-backlight scale {
+    margin: 0 8px;
 }
 
 
@@ -209,8 +266,9 @@
    ───────────────────────────────────────────── */
 
 .widget-mpris {
-    background: @bg;
-    border-radius: 8px;
+    background: @main-bg;
+    border: 1px solid @border;
+    border-radius: 12px;
     margin: 6px;
     padding: 10px;
 }
@@ -231,12 +289,13 @@
 .widget-mpris > box > button {
     background: transparent;
     color: @main-fg;
-    border-radius: 6px;
+    border-radius: 8px;
     border: none;
+    transition: all 0.2s ease;
 }
 
 .widget-mpris > box > button:hover {
-    background: #30343D;
+    background: @hover;
     color: @purple;
 }
 
@@ -246,15 +305,21 @@
    ───────────────────────────────────────────── */
 
 scrollbar {
-    min-width: 0;
-    min-height: 0;
+    background: transparent;
 }
 
 scrollbar slider {
-    min-width: 0;
-    min-height: 0;
-    background: transparent;
+    background: @purple;
+    border-radius: 4px;
+    min-width: 4px;
+    min-height: 4px;
+    opacity: 0.6;
 }
+
+scrollbar slider:hover {
+    opacity: 1;
+}
+
 
 /* ─────────────────────────────────────────────
    Notification Rows
@@ -286,4 +351,3 @@ scrollbar slider {
 .normal {
     opacity: 1;
 }
-

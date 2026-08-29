@@ -1,33 +1,32 @@
-@define-color bar-bg #121212;
+/* Ayu Dark */
+@define-color bar-bg #11151C;
 
-@define-color main-fg #ABB2BF;
-@define-color main-bg #121212;
+@define-color main-fg #BFBDB6;
+@define-color main-bg #11151C;
 
-@define-color wb-urg-fg #E06C75;
+@define-color wb-urg-fg #F07178;
 @define-color wb-urg-bg transparent;
 
-@define-color wb-act-fg #C678DD;
+@define-color wb-act-fg #D2A6FF;
 @define-color wb-act-bg transparent;
 
 @define-color wk-inact-fg transparent;
 @define-color wk-inact-bg transparent;
 
-@define-color wb-hvr-fg #61AFEF;
+@define-color wb-hvr-fg #59C2FF;
 @define-color wb-hvr-bg transparent;
 
-@define-color bg #282C34;
-@define-color red #E06C75;
-@define-color lime #98C379;
-@define-color yellow #E5C07B;
-@define-color cyan #61AFEF;
-@define-color purple #C678DD;
-@define-color blue #56B6C2;
-@define-color fg #ABB2BF;
-@define-color grey #5C6370;
-@define-color red #E06C75;
-@define-color lime #98C379;
-@define-color yellow #E5C07B;
-@define-color cyan #61AFEF;
-@define-color purple #C678DD;
-@define-color blue #56B6C2;
-@define-color white #FFFFFF;
+@define-color bg #0B0E14;
+@define-color red #F07178;
+@define-color lime #AAD94C;
+@define-color yellow #FFB454;
+@define-color cyan #95E6CB;
+@define-color purple #D2A6FF;
+@define-color blue #59C2FF;
+@define-color fg #BFBDB6;
+@define-color grey #565B66;
+@define-color white #D9D7CE;
+
+@define-color border #1F232C;
+@define-color selection #253340;
+@define-color hover #1B1F28;

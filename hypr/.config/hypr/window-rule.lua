@@ -76,6 +76,11 @@ hl.window_rule({
 	float = true,
 })
 
+hl.window_rule({
+	match = { class = "me-pox-ateroids-Asteroid" },
+	float = true,
+})
+
 --------------------------------
 --          Workspace         --
 --------------------------------

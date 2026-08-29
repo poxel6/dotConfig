@@ -9,6 +9,6 @@
 		"on-scroll-up": "~/.local/share/bin/timer.sh down",
 		"on-scroll-down": "~/.local/share/bin/timer.sh up",
 		"tooltip": true,
-		"escape": true
+		"markup": true,
 	}
 }

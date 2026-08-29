@@ -2,7 +2,7 @@
   "custom/notification": {
 	"tooltip": true,
 	"tooltip-format": "Left Click: Launch Notification Center\nRight Click: Do not Disturb",
-	"format": "{icon} ",
+	"format": "<span font_size='13000'>{icon}</span> ",
     "format-icons": {
 		"notification": "<span foreground='red'><sup></sup></span>",
 		"none": "",

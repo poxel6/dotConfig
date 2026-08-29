@@ -1,8 +1,8 @@
 @import "./theme.css";
 
 * {
-  font-family: "InterVariable", "Iosevka Nerd Font Mono 16";
-  font-size: 16px;
+  font-family: "Inter Variable", "Hack Nerd Font Mono 24";
+  /* font-size: 16px; */
   min-height: 10px;
 }
 
@@ -13,9 +13,10 @@ window#waybar {
 tooltip {
   background: @main-bg;
   color: @main-fg;
-  border-radius: 10px;
-  padding: 5px;
-  font-size: 1.4rem;
+  border: 1px solid @border;
+  border-radius: 12px;
+  padding: 6px;
+  font-size: 1.1rem;
 }
 
 #workspaces button {
@@ -23,8 +24,10 @@ tooltip {
 }
 
 #workspaces button.active {
-  background: @wk-act-bg;
+  background: @selection;
   color: @purple;
+  border-radius: 15px;
+  transition: all 0.3s ease;
   /* margin: 0 3px; */
   /* padding: 0 5px; */
 }
@@ -57,11 +60,12 @@ tooltip {
 #workspaces {
   color: @main-fg;
   background: @main-bg;
+  border: 1px solid @border;
   border-radius: 15px;
   opacity: 1;
   min-width: 35px;
-  padding: 2px 10px;
-  margin: 4px 5px 0 5px;
+  padding: 1px 10px;
+  margin: 2px 5px 0 5px;
 }
 
 #idle_inhibitor,
@@ -75,29 +79,33 @@ tooltip {
 
 #idle_inhibitor {
   min-width: 35px;
+  border: 1px solid @border;
+  border-right: none;
   border-radius: 15px 0 0 15px;
   padding: 0 5px 0 10px;
-  margin: 4px 0 0 10px;
+  margin: 2px 0 0 10px;
 }
 
 #custom-notification {
   min-width: 35px;
+  border: 1px solid @border;
+  border-left: none;
   border-radius: 0 15px 15px 0;
   padding: 0 10px 0 5px;
-  margin: 4px 10px 0 0;
+  margin: 2px 10px 0 0;
 }
 
 #clock {
-	color: @blue;
-}
-#wireplumber {
 	color: @yellow;
 }
+#wireplumber {
+	color: @cyan;
+}
 #custom-update{
-	color: green;
+	color: @lime;
 }
 #mpris {
-	color: @red;
+	color: @purple;
 }
 
  /* Waybar Timer */
@@ -105,8 +113,7 @@ tooltip {
  #custom-timer {
 	 background: @main-bg;
 	 color: @main-fg;
-	 font-family: "Iosevka Nerd Font Mono 16";
-     font-size: 18px;
+     /* font-size: 18px; */
      border-radius: 15px;
      font-weight: 600;
      transition: all 0.2s ease;
@@ -151,11 +158,11 @@ tooltip {
  * ----------------------------------------------------------------------------- */
  @keyframes red-alert {
      0% {
-         color: #ff4d4d; /* Bright, visible Red */
+         color: @red;
          opacity: 1;
      }
      100% {
-         color: #ff4d4d;
+         color: @red;
          opacity: 0.75; /* Fade cleanly to 75% transparency */
          text-shadow: none;
      }

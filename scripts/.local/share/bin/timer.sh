@@ -9,7 +9,7 @@ INACTIVITY_LIMIT=30
 
 # --- POMODORO PRESET ---
 POMO_PRESETS=(
-    "25 5 4"
+    "50 10 5"
 )
 
 # Pomodoro Settings
@@ -25,7 +25,7 @@ SOUND_BREAK_END="${HOME}/.config/waybar/sounds/timer.mp3"
 SOUND_COMPLETE="${HOME}/.config/waybar/sounds/timer.mp3"
 
 # --- ICONS ---
-ICON_DISABLED="󰔞 "
+ICON_DISABLED="󰔞"
 ICON_IDLE="󰔛"
 ICON_SELECT="󱫣"
 ICON_PAUSE="󱫟"
@@ -41,6 +41,8 @@ ICON_POMO_HALF=""
 ICON_POMO_END=""
 ICON_POMO_DONE=""
 ICON_POMO_BREAK=""
+
+wrap_icon() { printf "<span font_size='13000'>%s</span>" "$1"; }
 
 
 STATE_FILE="/dev/shm/waybar_timer.json"
@@ -217,7 +219,7 @@ if [ -n "$1" ]; then
             ARGS="$*"
 
             # Defaults
-            W=25; B=5; S=4
+            W=50; B=10; S=5
 
             if [[ "$ARGS" =~ [0-9]+[mbs] ]]; then
                 [[ "$ARGS" =~ ([0-9]+)m ]] && W="${BASH_REMATCH[1]}"
@@ -443,7 +445,7 @@ while true; do
             ICON="$ICON_DISABLED"
             CLASS="disabled"
             TOOLTIP="Timer Disabled\nLeft Click: Activate"
-            echo "{\"text\": \"$ICON\", \"tooltip\": \"$TOOLTIP\", \"class\": \"$CLASS\"}"
+            echo "{\"text\": \"$(wrap_icon "$ICON")\", \"tooltip\": \"$TOOLTIP\", \"class\": \"$CLASS\"}"
 
             read -t 1 -n 1 _ <&3
             continue ;;
@@ -492,7 +494,7 @@ while true; do
 
         "POMO_MSG")
             if [ "$P_STAGE" == "0" ]; then TEXT="Work $P_CURRENT/$P_TOTAL"; ICON="$ICON_POMO_START"; else TEXT="Break Time"; ICON="$ICON_POMO_BREAK"; fi
-            echo "{\"text\": \"$ICON $TEXT\", \"class\": \"pomo_msg\"}"
+            echo "{\"text\": \"$(wrap_icon "$ICON") $TEXT\", \"class\": \"pomo_msg\"}"
             sleep 1.2
             WS "RUNNING" "$SEC_SET" "$NOW" "0" "$NEW_ACT" "$PRESET_IDX" "$MODE" "$P_STAGE" "$P_CURRENT" "$P_TOTAL" "$P_WORK_LEN" "$P_BREAK_LEN" "$P_EDIT_FOCUS"
             continue ;;
@@ -565,10 +567,10 @@ while true; do
             if [ $(( NOW - LAST_ACT )) -gt 5 ]; then WS "IDLE" "0" "0" "0" "$NOW" "0" "0" "0" "0" "0" "0" "0" "0"; trigger_update; continue; fi ;;
 
         "RESET_ANIM")
-             echo "{\"text\": \"$ICON_RESET --:--\", \"class\": \"reset\", \"tooltip\": \"Resetting...\"}"
+             echo "{\"text\": \"$(wrap_icon "$ICON_RESET") --:--\", \"class\": \"reset\", \"tooltip\": \"Resetting...\"}"
              sleep 0.2; WS "IDLE" "0" "0" "0" "$NOW" "0" "0" "0" "0" "0" "0" "0" "0"; continue ;;
     esac
 
-    echo "{\"text\": \"$ICON $TEXT\", \"tooltip\": \"$TOOLTIP\", \"class\": \"$CLASS\"}"
+    echo "{\"text\": \"$(wrap_icon "$ICON") $TEXT\", \"tooltip\": \"$TOOLTIP\", \"class\": \"$CLASS\"}"
     read -t 1 -n 1 _ <&3
 done

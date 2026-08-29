@@ -1,6 +1,6 @@
 {
 	"custom/update": {
-		"format": "<big></big>  {}", // "<big>󰮯</big>"
+		"format": "<span font_size='13000'></span>  {}", // "<span font_size='13000'>󰮯</span>"
 		"interval": 7200, // 2 hour = 2 * 60 * 60 => (hour) * (toMinutes) * (toSeconds)
 		"exec-if": "[[ $(checkupdates) ]]",
 		"exec": "num=$(checkupdates | wc -l) && notify-send '󰮯 \tPacman' \"$num\tpackage have update available.\"",

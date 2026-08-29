@@ -29,9 +29,7 @@
 
   (set-face-attribute 'org-level-2 nil
                       :family "Iosevka NFM"
-                      :foreground "#c678dd"
-                      :weight 'medium
-                      :height 200)
+                      :foreground "#c678dd")
 
   (set-face-attribute 'org-table nil
                       :family "Inter"

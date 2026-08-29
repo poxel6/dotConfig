@@ -1,7 +1,7 @@
 {
 	"mpris": {
-		"format": "{player_icon} {title}",
-		"format-paused": "<big>{status_icon}</big> <i>{title}</i>",
+		"format": "<span font_size='13000'>{player_icon}</span> {title}",
+		"format-paused": "<span font_size='13000'>{status_icon}</span> <i>{title}</i>",
 		"player-icons": {
 			"default": "▶",
 			"mpv": "🎵"
@@ -9,7 +9,7 @@
 		"status-icons": {
 			"paused": "⏸"
 		},
-		"tooltip-format": "{player_icon} {artist}: {title}",
+		"tooltip-format": "<span font_size='13000'>{player_icon}</span> {artist}: {title}",
 		"ignored-players": ["brave"]
 	}
 }

@@ -1,16 +1,16 @@
 {
-  "wireplumber": {
-    "format": "{icon}   {volume}%",
-    "format-muted": "<big>󰝟</big>  0%",
-    "tooltip": false,
-    "tooltip-format": "{volume}% {icon}",
-    "on-click": "mpc toggle",
-    "on-click-middle": "pwvucontrol",
-    "on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
-    "format-icons": [
-      "",
-      "",
-      "",
-    ],
-  },
+	"wireplumber": {
+		"format": "{icon}   {volume}%",
+		"format-muted": "󰝟   0%",
+		"tooltip": false,
+		"tooltip-format": "{volume}% {icon}",
+		"on-click": "mpc toggle",
+		"on-click-middle": "pwvucontrol",
+		"on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+		"format-icons": [
+			"󰕿",
+			"󰖀",
+			"󰕾"
+		]
+	}
 }
