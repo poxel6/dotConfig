@@ -13,16 +13,17 @@ end
 
 local subs = {
 	["NAME"] = "pox",
+	["FULLNAME"] = "poxel6",
+	["YEAR"] = os.date("%Y"),
 	["FILENAME"] = vim.fn.expand("%:r"),
 	["CURSOR"] = " ",
 	["JAVA_CLASS_NAME"] = pascal_case(vim.fn.expand("%:r")),
+	["JAVA_PACKAGE"] = "", -- TODO: It should get the path and extract the java package from it.
 }
 
 local patterns = {
 	["*.h"] = "skeleton.h",
-	["main.c"] = "main.c",
 	["*.c"] = "skeleton.c",
-	["main.java"] = "main.java",
 	["*.java"] = "skeleton.java",
 	["*.lua"] = "skeleton.lua",
 	["*.md"] = "skeleton.md",

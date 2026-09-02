@@ -16,7 +16,13 @@ vim.keymap.set({ "x", "v", "n" }, "gro", vim.lsp.buf.format)
 vim.keymap.set("n", "<leader>l", "<CMD>%lua<CR>")
 vim.keymap.set("v", "<leader>l", "<CMD>'<,'>lua<CR>gv")
 vim.keymap.set("n", "<leader>i", function()
-	vim.diagnostic.config({ virtual_lines = not vim.diagnostic.config().virtual_lines or false })
+	vim.diagnostic.config({
+		virtual_lines = not vim
+			.diagnostic
+			.config()--[[@cast -?]]
+			.virtual_lines,
+	})
+	vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
 end)
 
 vim.keymap.set("n", "<leader>M", function()
@@ -31,12 +37,10 @@ vim.keymap.set("n", "<leader>t", "<CMD>vs term://zsh<CR>")
 vim.keymap.set("n", "<leader>T", "<CMD>tab term<CR>")
 vim.keymap.set("n", "<leader>m", function()
 	local make = vim.o.makeprg
-	-- local makeprg = vim.o.makeprg
-	-- local file = vim.fn.expand("%:t")
-	-- local make = makeprg:gsub("%%", file)
-	-- print(file)
-	-- print(makeprg)
 	vim.cmd.AutoRun(make)
+end)
+vim.keymap.set("n", "<A-[>", function()
+	vim.cmd.Recompile()
 end)
 
 vim.keymap.set({ "i", "s" }, "<C-e>", function()

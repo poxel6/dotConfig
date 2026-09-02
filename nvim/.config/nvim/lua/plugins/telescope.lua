@@ -1,6 +1,10 @@
+---@diagnostic disable: undefined-field, unresolved-require
+
+local height = 0.2
+
 return {
 	"nvim-telescope/telescope.nvim",
-	cmd = "Telescope",
+	cmd = "VeryLazy",
 	dependencies = {
 		"nvim-lua/plenary.nvim",
 		"nvim-telescope/telescope-ui-select.nvim",
@@ -11,7 +15,7 @@ return {
 			"<leader>sf",
 			function()
 				require("telescope.builtin").find_files(
-					require("telescope.themes").get_ivy({ layout_config = { height = 0.3 } })
+					require("telescope.themes").get_ivy({ layout_config = { height = height } })
 				)
 			end,
 		},
@@ -19,7 +23,7 @@ return {
 			"<leader>sh",
 			function()
 				require("telescope.builtin").help_tags(
-					require("telescope.themes").get_ivy({ layout_config = { height = 0.3 } })
+					require("telescope.themes").get_ivy({ layout_config = { height = height } })
 				)
 			end,
 		},
@@ -46,7 +50,6 @@ return {
 				preview = false,
 				file_ignore_patterns = {
 					"target/",
-					"bin/",
 					"node_modules/",
 					"build/",
 					"lazy-lock.json",

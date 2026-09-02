@@ -10,6 +10,6 @@ return {
 		vim.keymap.set("n", "<leader>gb", gs.blame_line)
 		vim.keymap.set("n", "<leader>gd", gs.diffthis)
 		vim.keymap.set("n", "<leader>gs", gs.stage_hunk)
-
+		vim.keymap.set("n", "<leader>gr", gs.reset_hunk)
 	end,
 }
