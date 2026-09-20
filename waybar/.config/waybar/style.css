@@ -2,12 +2,13 @@
 
 * {
   font-family: "Inter Variable", "Hack Nerd Font Mono 24";
-  /* font-size: 16px; */
+  font-size: 16px;
   min-height: 10px;
 }
 
 window#waybar {
   background: transparent;
+  /* background: @main-bg; */
 }
 
 tooltip {
@@ -21,6 +22,7 @@ tooltip {
 
 #workspaces button {
   color: @main-fg;
+  border: 0;
 }
 
 #workspaces button.active {
@@ -40,15 +42,16 @@ tooltip {
 
 #workspaces button:hover {
   color: @wb-hvr-bg;
-  background: @wb-hvr-fg;
+  background: @main-bg;
   opacity: 0.8;
-  border-radius: 30px;
+  border-radius: 10px;
   animation: ws_hover 2s ease-in-out 1;
   transition: all 0.5s cubic-bezier(0.55, -0.68, 0.48, 1.682);
 }
 
 #clock,
 #memory,
+#cpu,
 #mpris,
 #network,
 #pulseaudio,
@@ -56,6 +59,8 @@ tooltip {
 #wireplumber.muted,
 #custom-update,
 #custom-timer,
+#idle_inhibitor,
+#custom-notification,
 #tray,
 #workspaces {
   color: @main-fg;
@@ -68,31 +73,50 @@ tooltip {
   margin: 2px 5px 0 5px;
 }
 
+#custom-timer,
 #idle_inhibitor,
-#custom-powermenu,
 #custom-notification {
-  color: @main-fg;
-  background: @main-bg;
-  opacity: 1;
-  min-width: 35px;
-}
-
-#idle_inhibitor {
-  min-width: 35px;
-  border: 1px solid @border;
-  border-right: none;
-  border-radius: 15px 0 0 15px;
-  padding: 0 5px 0 10px;
-  margin: 2px 0 0 10px;
+	border: 0;
+	margin: 2px 0 0 0;
+	border-radius: 0;
+	padding: 3px;
+	border-top: 1px solid @border;
+	border-bottom: 1px solid @border;
 }
 
 #custom-notification {
-  min-width: 35px;
-  border: 1px solid @border;
-  border-left: none;
-  border-radius: 0 15px 15px 0;
-  padding: 0 10px 0 5px;
-  margin: 2px 10px 0 0;
+	border-right: 1px solid @border;
+	margin: 2px 15px 0 0;
+	border-radius: 0 15px 15px 0;
+}
+
+#custom-timer {
+	border-left: 1px solid @border;
+	margin: 2px 0 0 15px;
+	border-radius: 15px 0 0 15px;
+}
+
+#memory,
+#cpu {
+	border: 0;
+	margin: 2px 0 0 0;
+	border-radius: 0;
+	padding: 0 10px;
+	border-top: 1px solid @border;
+	border-bottom: 1px solid @border;
+}
+
+#cpu {
+	border-right: 1px solid @border;
+	margin: 2px 5px 0 0;
+	padding: 0 15px 0 5px;
+	border-radius: 0 15px 15px 0;
+}
+
+#memory {
+	border-left: 1px solid @border;
+	margin: 2px 0 0 15px;
+	border-radius: 15px 0 0 15px;
 }
 
 #clock {
@@ -107,17 +131,6 @@ tooltip {
 #mpris {
 	color: @purple;
 }
-
- /* Waybar Timer */
-/* https://github.com/niraletter/waybar-pomodoro-timer */
- #custom-timer {
-	 background: @main-bg;
-	 color: @main-fg;
-     /* font-size: 18px; */
-     border-radius: 15px;
-     font-weight: 600;
-     transition: all 0.2s ease;
- }
 
  #custom-timer.disabled {
 	 background: @main-bg;

@@ -13,7 +13,7 @@
 @define-color wk-inact-fg transparent;
 @define-color wk-inact-bg transparent;
 
-@define-color wb-hvr-fg #59C2FF;
+@define-color wb-hvr-fg #0B0E14;
 @define-color wb-hvr-bg transparent;
 
 @define-color bg #0B0E14;
@@ -27,6 +27,6 @@
 @define-color grey #565B66;
 @define-color white #D9D7CE;
 
-@define-color border #1F232C;
-@define-color selection #253340;
+@define-color border #253340;
+@define-color selection #223344;
 @define-color hover #1B1F28;

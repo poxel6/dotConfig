@@ -17,6 +17,8 @@
 	"gtk-layer-shell": true,
 	"reload_style_on_change": true,
 	"include": [
+		"./modules/memory.jsonc",
+		"./modules/cpu.jsonc",
 		"./modules/timer.jsonc",
 		"./modules/update.jsonc",
 		"./modules/wireplumber.jsonc",
@@ -36,10 +38,12 @@
 		"hyprland/workspaces"
 	],
 	"modules-right": [
+		"memory",
+		"cpu",
 		"custom/timer",
-		"tray",
 		"network",
 		"idle_inhibitor",
 		"custom/notification",
-	],
+		"tray"
+	]
 }

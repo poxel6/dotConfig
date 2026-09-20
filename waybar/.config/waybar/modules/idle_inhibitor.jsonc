@@ -1,10 +1,10 @@
 {
-  "idle_inhibitor": {
-    "format": "<span font_size='13000'>{icon}</span>",
-    "format-icons": {
-      "on-click": {},
-      "activated": "",
-      "deactivated": "",
-    },
-  },
+	"idle_inhibitor": {
+		"format": "{icon}",
+		"format-icons": {
+			"on-click": {},
+			"activated": "",
+			"deactivated": ""
+		}
+	}
 }

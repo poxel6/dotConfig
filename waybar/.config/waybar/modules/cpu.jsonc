@@ -1,0 +1,17 @@
+{
+	"cpu": {
+		"interval": 10,
+		"format": "{usage:>2}% ",
+		"tooltip-format": "{icon0}{icon1}{icon2}{icon3} {name}{usage:>2}%",
+		"format-icons": [
+			"▁",
+			"▂",
+			"▃",
+			"▄",
+			"▅",
+			"▆",
+			"▇",
+			"█"
+		]
+	}
+}
