@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Variables
-mDIR="$HOME/Music/"
+mDIR="/mnt/games/Music/"
 plDIR="$mDIR/Playlists"
 volume=75
 

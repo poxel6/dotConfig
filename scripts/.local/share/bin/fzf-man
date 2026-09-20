@@ -1,0 +1,6 @@
+#!/bin/zsh
+
+export MANPAGER='nvim +Man!'
+man "$(print -rl -- ${(k)commands} | fzf --prompt='man> ')"
+
+kitten @ close-tab --self
