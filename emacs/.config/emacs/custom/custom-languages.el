@@ -15,6 +15,10 @@
             (lambda ()
               (eglot-inlay-hints-mode -1))))
 
+;; ---------------------------------
+;; Rust
+;; ---------------------------------
+
 (use-package rust-mode
   :ensure nil
   :mode "\\.rs\\'")
@@ -26,4 +30,26 @@
      ("rust-analyzer" :initializationOptions 
       (:check (:command "clippy"))))))
 
+;; ---------------------------------
+;; OCaml MyCamel
+;; ---------------------------------
+
+(use-package tuareg
+  :ensure t
+  :mode ("\\.ml\\'" . tuareg-mode))
+
+(use-package ocaml-eglot
+  :ensure t
+  :after tuareg
+  :hook
+  (tuareg-mode . ocaml-eglot-mode)
+  (ocaml-eglot-mode . eglot-ensure))
+
+(use-package ocamlformat
+  :ensure t
+  :after tuareg)
+
+(with-eval-after-load 'eglot
+  (add-to-list 'eglot-server-programs
+               '((tuareg-mode) . ("opam" "exec" "--" "ocamllsp"))))
 

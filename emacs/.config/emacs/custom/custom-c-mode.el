@@ -14,10 +14,11 @@
 (defun my-c-ts-mode-setup ()
   (setq-local c-ts-mode-indent-style 'k&r)
   (setq-local c-ts-mode-indent-offset 4)
+  (setq-local c-ts-indent-offset 4)
   (setq-local indent-tabs-mode nil)
   (setq-local tab-width 4)
   (setq-local c-auto-align-backslashes t)
-  
+
   (electric-indent-local-mode 1)
   (electric-pair-mode 1))
 
@@ -65,7 +66,19 @@
   :ensure t
   :custom
   (clang-format-style
-   "{BasedOnStyle: Google, AlignArrayOfStructures: Left, IndentWidth: 4, AllowShortFunctionsOnASingleLine: None, AllowShortBlocksOnASingleLine: Never, AllowShortIfStatementsOnASingleLine: Never, AllowShortLoopsOnASingleLine: false, AllowShortEnumsOnASingleLine: false, PointerAlignment: Left, IndentCaseLabels: true}")
+   "{BasedOnStyle: Google,
+AlignArrayOfStructures: Left,
+IndentWidth: 4,
+BinPackParameters: false,
+BinPackArguments: false,
+AllowShortFunctionsOnASingleLine: None,
+AllowShortBlocksOnASingleLine: Never,
+AllowShortIfStatementsOnASingleLine: Never,
+AllowShortLoopsOnASingleLine: false,
+AllowShortEnumsOnASingleLine: false,
+AllowAllParametersOfDeclarationOnNextLine: false,
+PointerAlignment: Left,
+IndentCaseLabels: false}")
   :bind
   (("C-c f" . clang-format-buffer)))
 

@@ -14,8 +14,8 @@
      "a5c590aeb7dc5c2b8d36601a4c94a1145e46bd2291571af02807dd7a8552630c"
      default))
  '(package-selected-packages
-   '(clang-format diredfl doom-themes ghostel gruber-darker-theme magit
-		  multiple-cursors)))
+   '(clang-format diff-hl diredfl doom-themes ghostel gruber-darker-theme
+		  helpful magit multiple-cursors ocaml-eglot)))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
