@@ -33,16 +33,16 @@ local patterns = {
 ---@param line string
 ---@return string
 local replace_patterns = function(line)
-	local subs_todo = {}
+	local replacements = {}
 	for str in string.gmatch(line, "@[%w_]+@") do
 		local clean = str:gsub("@", "")
 		local val = subs[clean]
 		if val then
-			subs_todo[clean] = val
+			replacements[clean] = val
 		end
 	end
 
-	for k, v in pairs(subs_todo) do
+	for k, v in pairs(replacements) do
 		line = string.gsub(line, "@" .. k .. "@", v)
 	end
 

@@ -5,6 +5,7 @@ local groups = {
 	"NormalBorder",
 	"NormalFloat",
 	"NormalNC",
+	"Folded",
 	"FloatBorder",
 	"FloatShadow",
 	"FloatShadowThrough",

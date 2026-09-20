@@ -1,3 +1,5 @@
+vim.keymap.set("n", "<A-i>", ":e ~/inbox.org<CR>", { silent = true })
+
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { silent = true })
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { silent = true })
 vim.keymap.set("v", "<C-J>", ":co '<<CR>gv=gv", { silent = true })
@@ -7,22 +9,29 @@ vim.keymap.set("n", "<leader>r", "<CMD>make<CR>")
 vim.keymap.set("n", "<C-q>", "<CMD>:cwindow<CR>")
 vim.keymap.set("n", "<C-S-q>", "<CMD>:cclose<CR>")
 vim.keymap.set("n", "<F5>", "<CMD>update<CR><CMD>restart<CR>")
+vim.keymap.set("n", "<F9>", ":update<CR>:Gf2<CR>")
 vim.keymap.set("n", "-", "<CMD>Ex<CR>")
 vim.keymap.set("n", "<leader><leader>", "<CMD>e #<CR>")
 
 vim.keymap.set({ "x", "v", "n" }, "<leader>y", '"+y')
 vim.keymap.set({ "x", "v", "n" }, "gro", vim.lsp.buf.format)
 
-vim.keymap.set("n", "<leader>l", "<CMD>%lua<CR>")
-vim.keymap.set("v", "<leader>l", "<CMD>'<,'>lua<CR>gv")
+vim.keymap.set("n", "<leader>L", "<CMD>%lua<CR>")
+vim.keymap.set({"n", "v"}, "<leader>l", function() -- TODO: BROKEN ASF
+	local lines = vim.fn.getregion(vim.fn.getpos("'<"), vim.fn.getpos("'>"), { type = vim.fn.mode() })
+	local code = table.concat(lines, "\n")
+	print(vim.inspect(lines))
+end)
 vim.keymap.set("n", "<leader>i", function()
+	vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+end)
+vim.keymap.set("n", "<leader>I", function()
 	vim.diagnostic.config({
 		virtual_lines = not vim
 			.diagnostic
 			.config()--[[@cast -?]]
 			.virtual_lines,
 	})
-	vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
 end)
 
 vim.keymap.set("n", "<leader>M", function()

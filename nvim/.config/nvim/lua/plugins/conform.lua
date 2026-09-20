@@ -34,16 +34,27 @@ return {
 			clang_format = {
 				command = "clang-format",
 				args = {
-					[[--style={
-	BasedOnStyle: Google,
-	AlignArrayOfStructures: Left,
-	IndentWidth: 4,
-	AllowShortFunctionsOnASingleLine: None,
-	AllowShortBlocksOnASingleLine: Never,
-	AllowShortIfStatementsOnASingleLine: Never,
-	AllowShortLoopsOnASingleLine: false,
-	AllowShortEnumsOnASingleLine: false
-}]],
+					"--assume-filename",
+					"$FILENAME",
+					"--style",
+					[[{
+						BasedOnStyle: Google,
+						AlignArrayOfStructures: Left,
+						IndentWidth: 4,
+						BinPackParameters: false,
+						BinPackArguments: false,
+						AllowAllParametersOfDeclarationOnNextLine: false,
+						PointerAlignment: Left,
+						IndentCaseLabels: false,
+						IncludeBlocks: Regroup,
+						IncludeIsMainRegex: '(Test)?$',
+						MainIncludeChar: Quote,
+						AllowShortFunctionsOnASingleLine: None,
+						AllowShortBlocksOnASingleLine: Never,
+						AllowShortIfStatementsOnASingleLine: Never,
+						AllowShortLoopsOnASingleLine: false,
+						AllowShortEnumsOnASingleLine: false
+					}]],
 				},
 				stdin = true,
 			},

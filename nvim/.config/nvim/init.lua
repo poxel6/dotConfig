@@ -12,6 +12,7 @@ require("custom.skeleton")
 require("custom.autorun")
 require("custom.tabline")
 require("custom.ui2")
+require("custom.gf2")
 
 vim.cmd("colorscheme ayu")
 

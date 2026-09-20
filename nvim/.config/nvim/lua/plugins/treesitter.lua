@@ -4,6 +4,7 @@ return {
 	build = ":TSUpdate",
 	config = function()
 		require("nvim-treesitter").install({
+			"asm",
 			"java",
 			"javadoc",
 			"javascript",
@@ -12,6 +13,8 @@ return {
 			"tsx",
 			"go",
 			"rust",
+			"odin",
+			"ocaml",
 			"zig",
 			"bash",
 			"c",

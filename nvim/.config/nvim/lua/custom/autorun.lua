@@ -1,3 +1,4 @@
+-- DEPRECATED: I MADE COMPILE MODE
 -- TODO: This is not working as expected
 -- It should create a split buffer and run it everytime I save
 -- and I should populate the quick fix

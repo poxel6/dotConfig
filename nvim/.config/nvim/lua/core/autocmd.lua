@@ -66,3 +66,10 @@ vim.api.nvim_create_autocmd("FileType", {
 		vim.api.nvim_buf_set_keymap(0, "n", "q", "<Cmd>wincmd c<CR>", {})
 	end,
 })
+
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "asm",
+	callback = function(args)
+		vim.treesitter.start(args.buf, "asm")
+	end,
+})

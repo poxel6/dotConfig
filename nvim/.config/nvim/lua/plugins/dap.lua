@@ -1,0 +1,195 @@
+return {
+	-- {
+	-- 	disabled = true,
+	-- 	"mfussenegger/nvim-dap",
+	-- 	dependencies = {
+	-- 		"theHamsta/nvim-dap-virtual-text",
+	-- 		"rcarriga/nvim-dap-ui",
+	-- 	},
+	-- 	config = function()
+	-- 		local dap = require("dap")
+	-- 		local uv = vim.uv or vim.loop
+	--
+	-- 		vim.keymap.set("n", "<F5>", dap.continue, { desc = "Continue" })
+	-- 		vim.keymap.set("n", "<F9>", dap.toggle_breakpoint, { desc = "Breakpoint" })
+	-- 		vim.keymap.set("n", "<F10>", dap.step_over, { desc = "Step Over" })
+	-- 		vim.keymap.set("n", "<F11>", dap.step_into, { desc = "Step Into" })
+	-- 		vim.keymap.set("n", "<S-F11>", dap.step_out, { desc = "Step Out" })
+	-- 		vim.keymap.set("n", "<S-F5>", dap.restart, { desc = "Restart" })
+	-- 		vim.keymap.set("n", "<F12>", dap.terminate, { desc = "Terminate" })
+	--
+	-- 		dap.adapters.gdb = {
+	-- 			type = "executable",
+	-- 			command = "gdb",
+	-- 			args = { "--interpreter=dap", "--eval-command", "set print pretty on" },
+	-- 		}
+	--
+	-- 		local function file_exists(path)
+	-- 			return path and uv.fs_stat(path) ~= nil
+	-- 		end
+	--
+	-- 		local function is_executable(path)
+	-- 			return file_exists(path) and vim.fn.executable(path) == 1
+	-- 		end
+	--
+	-- 		local function workspace_root()
+	-- 			local current = vim.api.nvim_buf_get_name(0)
+	-- 			local root_markers = {
+	-- 				".git",
+	-- 				"compile_commands.json",
+	-- 				"CMakeLists.txt",
+	-- 				"Cargo.toml",
+	-- 				"Makefile",
+	-- 			}
+	--
+	-- 			local root = vim.fs.dirname(vim.fs.find(root_markers, {
+	-- 				path = current ~= "" and current or vim.fn.getcwd(),
+	-- 				upward = true,
+	-- 			})[1] or "")
+	--
+	-- 			return root ~= "" and root or vim.fn.getcwd()
+	-- 		end
+	--
+	-- 		local function pick_cpp_binary()
+	-- 			local cwd = workspace_root()
+	-- 			local current = vim.api.nvim_buf_get_name(0)
+	-- 			local stem = vim.fn.fnamemodify(current, ":t:r")
+	-- 			local candidates = {
+	-- 				cwd .. "/" .. stem,
+	-- 				cwd .. "/build/" .. stem,
+	-- 				cwd .. "/bin/" .. stem,
+	-- 				cwd .. "/build/debug/" .. stem,
+	-- 				cwd .. "/build/Debug/" .. stem,
+	-- 				cwd .. "/out/" .. stem,
+	-- 				cwd .. "/target/" .. stem,
+	-- 			}
+	--
+	-- 			for _, candidate in ipairs(candidates) do
+	-- 				if is_executable(candidate) then
+	-- 					vim.notify("DAP launching " .. candidate, vim.log.levels.INFO)
+	-- 					return candidate
+	-- 				end
+	-- 			end
+	--
+	-- 			local picked = vim.fn.input("Path to executable: ", cwd .. "/", "file")
+	-- 			if picked == "" then
+	-- 				vim.notify("DAP launch cancelled: no executable selected", vim.log.levels.WARN)
+	-- 				return nil
+	-- 			end
+	-- 			if not is_executable(picked) then
+	-- 				vim.notify("DAP launch aborted: not executable: " .. picked, vim.log.levels.ERROR)
+	-- 				return nil
+	-- 			end
+	-- 			return picked
+	-- 		end
+	--
+	-- 		local function split_args(input)
+	-- 			local args = {}
+	-- 			for arg in string.gmatch(input, "%S+") do
+	-- 				table.insert(args, arg)
+	-- 			end
+	-- 			return args
+	-- 		end
+	--
+	-- 		local function prompt_args()
+	-- 			return split_args(vim.fn.input("Program arguments: "))
+	-- 		end
+	--
+	-- 		local lldb_dap = vim.fn.exepath("lldb-dap")
+	-- 		local codelldb = vim.fn.exepath("codelldb")
+	-- 		if lldb_dap ~= "" then
+	-- 			dap.adapters.lldb = {
+	-- 				type = "executable",
+	-- 				command = lldb_dap,
+	-- 				name = "lldb",
+	-- 			}
+	-- 		elseif codelldb ~= "" then
+	-- 			dap.adapters.lldb = {
+	-- 				type = "server",
+	-- 				port = "${port}",
+	-- 				executable = {
+	-- 					command = codelldb,
+	-- 					args = { "--port", "${port}" },
+	-- 				},
+	-- 			}
+	-- 		else
+	-- 			vim.notify("No C/C++ DAP adapter found. Install `lldb-dap` or `codelldb`.", vim.log.levels.WARN)
+	-- 		end
+	--
+	-- 		local cconfig = {
+	-- 			{
+	-- 				name = "Launch",
+	-- 				type = "lldb",
+	-- 				request = "launch",
+	-- 				program = pick_cpp_binary,
+	-- 				cwd = "${workspaceFolder}",
+	-- 				stopOnEntry = false,
+	-- 			},
+	-- 			{
+	-- 				name = "Launch with args",
+	-- 				type = "lldb",
+	-- 				request = "launch",
+	-- 				program = pick_cpp_binary,
+	-- 				args = prompt_args,
+	-- 				cwd = "${workspaceFolder}",
+	-- 				stopOnEntry = false,
+	-- 			},
+	-- 			{
+	-- 				name = "Attach to process",
+	-- 				type = "lldb",
+	-- 				request = "attach",
+	-- 				pid = require("dap.utils").pick_process,
+	-- 				cwd = "${workspaceFolder}",
+	-- 			},
+	-- 		}
+	--
+	-- 		dap.configurations.c = cconfig
+	-- 	end,
+	-- },
+	-- {
+	-- 	"theHamsta/nvim-dap-virtual-text",
+	-- 	opts = {
+	-- 		enabled = true,
+	-- 		highlight_changed_variables = true,
+	-- 		show_stop_reason = true,
+	-- 	},
+	-- },
+	-- {
+	-- 	"rcarriga/nvim-dap-ui",
+	-- 	dependencies = { "nvim-neotest/nvim-nio" },
+	-- 	config = function()
+	-- 		local dap = require("dap")
+	-- 		local ok_nio = pcall(require, "nio")
+	-- 		if not ok_nio then
+	-- 			vim.notify("nvim-dap-ui disabled: failed to load nvim-nio", vim.log.levels.ERROR)
+	-- 			return
+	-- 		end
+	--
+	-- 		local ok_dapui, dapui = pcall(require, "dapui")
+	-- 		if not ok_dapui then
+	-- 			vim.notify("nvim-dap-ui disabled: failed to load dap-ui", vim.log.levels.ERROR)
+	-- 			return
+	-- 		end
+	--
+	-- 		dapui.setup({
+	-- 			layouts = {
+	-- 				{
+	-- 					elements = {
+	-- 						{ id = "scopes", size = 0.5 },
+	-- 						{ id = "breakpoints", size = 0.2 },
+	-- 						{ id = "stacks", size = 0.2 },
+	-- 						{ id = "watches", size = 0.2 },
+	-- 					},
+	-- 					size = 75,
+	-- 					position = "right",
+	-- 				},
+	-- 			},
+	-- 			controls = { enabled = false },
+	-- 		})
+	--
+	-- 		dap.listeners.after.event_initialized["dapui_config"] = dapui.open
+	-- 		dap.listeners.before.event_terminated["dapui_config"] = dapui.close
+	-- 		dap.listeners.before.event_exited["dapui_config"] = dapui.close
+	-- 	end,
+	-- },
+}
