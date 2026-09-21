@@ -1,0 +1,14 @@
+{
+	"battery": {
+		"interval": 10,
+		"format": "{capacity}% {icon}",
+		"format-charging": "{capacity}% +{power}W {icon}",
+		"format-full": "{capacity}% {icon}",
+		"format-alt": "{time} {icon}",
+		"format-time": "{H}h {m}m",
+		"format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰂀"],
+		"tooltip": true,
+		"tooltip-format": "󰁹  Battery\n━━━━━━━━━━━━━━━━\n󰁹  Charge:      {capacity}%\n󱐋  Power:        {power} W\n󰥔  Remaining:  {time}\n󱈑  Health:        {health}%\n󰞇  Cycles:       {cycles}"
+
+	}
+}

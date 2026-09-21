@@ -2,7 +2,8 @@
 	"cpu": {
 		"interval": 10,
 		"format": "{usage:>2}% ",
-		"tooltip-format": "{icon0}{icon1}{icon2}{icon3} {name}{usage:>2}%",
+		"tooltip": true,
+		"tooltip-format": "  CPU\n━━━━━━━━━━━━━━━━\n󰍛  Usage:       {usage}%\n󰊚  Load:        {load}\n󰔐  Frequency:   {avg_frequency} GHz\n󰓅  Maximum:     {max_frequency} GHz\n󰚀  Minimum:     {min_frequency} GHz\n\n󰻠  Per Core\n━━━━━━━━━━━━━━━━\n󰍛  Core 1:      {usage0}%\n󰍛  Core 2:      {usage1}%",
 		"format-icons": [
 			"▁",
 			"▂",
@@ -15,3 +16,4 @@
 		]
 	}
 }
+
