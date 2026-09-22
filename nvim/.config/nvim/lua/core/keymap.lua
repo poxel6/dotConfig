@@ -1,4 +1,11 @@
-vim.keymap.set("n", "<A-i>", ":e ~/inbox.org<CR>", { silent = true })
+vim.keymap.set("n", "<A-i>",function()
+ local year = os.date("%Y")
+ local month_number = os.date("%m")
+ local month_name = os.date("%B")
+ local str = "~/notes/%s/%s_%s.org"
+ str = str:format(year, month_number, month_name)
+ vim.cmd("e " .. str)
+end, { silent = true })
 
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { silent = true })
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { silent = true })
