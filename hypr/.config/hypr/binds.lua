@@ -8,6 +8,9 @@ local mainMod = "SUPER" -- Sets "Windows" key as main modifier
 local terminal = "kitty"
 local fileManager = "nemo"
 local menu = "walker"
+if require("laptop") then
+	menu = "killall rofi || rofi -show drun"
+end
 local bar = "waybar"
 local browser = "brave"
 local scripts = "$HOME/.local/share/bin/"

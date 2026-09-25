@@ -22,15 +22,15 @@ hl.monitor({
 })
 
 hl.gesture({
-    fingers = 3,
-    direction = "horizontal",
-    action = "workspace",
+	fingers = 3,
+	direction = "horizontal",
+	action = "workspace",
 })
 
 hl.gesture({
-    fingers = 3,
-    direction = "up",
-    action = "fullscreen",
+	fingers = 3,
+	direction = "up",
+	action = "fullscreen",
 })
 
 hl.config({
@@ -50,20 +50,6 @@ hl.config({
 
 		active_opacity = 1.0,
 		inactive_opacity = 1.0,
-
-		shadow = {
-			enabled = true,
-			range = 4,
-			render_power = 3,
-			color = 0xee1a1a1a,
-		},
-
-		blur = {
-			enabled = true,
-			size = 8,
-			passes = 2,
-			noise = 0.0,
-		},
 	},
 
 	binds = {
@@ -94,6 +80,46 @@ hl.config({
 		},
 	},
 })
+
+if require("laptop") then
+	-- laptop
+	hl.config({
+		---@type HL.ConfigOpt.Decoration
+		decoration = {
+			shadow = {
+				enabled = false,
+			},
+
+			blur = {
+				enabled = false,
+			},
+		},
+
+		misc = {
+			vrr = true,
+		},
+	})
+else
+	-- desktop
+	hl.config({
+		---@type HL.ConfigOpt.Decoration
+		decoration = {
+			shadow = {
+				enabled = true,
+				range = 4,
+				render_power = 3,
+				color = 0xee1a1a1a,
+			},
+
+			blur = {
+				enabled = true,
+				size = 8,
+				passes = 2,
+				noise = 0.0,
+			},
+		},
+	})
+end
 
 hl.config({
 	dwindle = {
