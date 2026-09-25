@@ -23,4 +23,4 @@ alias gu='git push'
 alias gp='git pull && git push'
 alias gsync='git add -A || git commit -m "automatic commit" && git pull && git push'
 
-alias nsync="git -C ~/notes add -A && ( ( git -C ~/notes commit -am $(date +%F_%H:%M:%S) ||  (git -C ~/notes pull && git -C ~/notes push) ) ||  (git -C ~/notes pull && git -C ~/notes push ))"
+alias nsync="git -C ~/notes add -A && ( ( git -C ~/notes commit -am $(date +%F_%H:%M:%S || true) ||  (git -C ~/notes pull && git -C ~/notes push) ) ||  (git -C ~/notes pull && git -C ~/notes push ))"
