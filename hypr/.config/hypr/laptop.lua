@@ -7,5 +7,5 @@ local hostname = function()
 	return name
 end
 
-return (hostname() == "soetucks")
+return (hostname() == "tucksoes")
 
