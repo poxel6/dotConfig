@@ -21,10 +21,13 @@ go rustup fasm gf2 \
 man-db man-pages \
 pacman-contrib\
 fd fastfetch ripgrep eza fzf stow tokei bat cliphist \
+wf-recorder btop imv nemo ly awww swaync swayosd \
+nwg-look pastel network-manager-applet \
+starship android-file-transfer keyd \
 --noconfirm
 ```
 
-Drivers
+Gaming
 ```sh
 sudo pacman -Syu \
 fuse3 ntfs-3g \
@@ -37,17 +40,24 @@ schedtool scx-scheds scx-tools \
 
 ```sh
 sudo pacman -Syu \
-pipewire pipewire-pulse pwvucontrol wireplumber mpv mpv-mpris \
+pipewire \
+pipewire-pulse \
+wireplumber \
+mpv \
+mpv-mpris \
 --noconfirm
 ```
 
 Hyprland
 ```sh
 sudo pacman -S \
-hyprcursor hypridle hyprland hyprlock hyprshade hyprpolkitagent xdg-desktop-portal-hyprland \
-wf-recorder btop imv nemo ly awww swaync swayosd \
-nwg-look pastel network-manager-applet \
-starship android-file-transfer keyd \
+hyprcursor \
+hypridle \
+hyprland \
+hyprlock \
+hyprshade \
+hyprpolkitagent \
+xdg-desktop-portal-hyprland \
 --noconfirm
 ```
 
