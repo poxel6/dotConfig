@@ -58,6 +58,8 @@ hyprlock \
 hyprshade \
 hyprpolkitagent \
 xdg-desktop-portal-hyprland \
+waybar \
+rofi-wayland \
 --noconfirm
 ```
 
