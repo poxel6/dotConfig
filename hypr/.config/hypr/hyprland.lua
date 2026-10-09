@@ -205,6 +205,9 @@ hl.on("hyprland.start", function()
 	-- Consider making these systemd user services instead.
 	hl.exec_cmd("sudo systemctl start keyd")
 
+	hl.exec_cmd("wl-paste --type text --watch cliphist store")
+	hl.exec_cmd("wl-paste --type image --watch cliphist store")
+
 	hl.exec_cmd("/usr/bin/kdeconnectd")
 	hl.exec_cmd("mpd")
 	hl.exec_cmd("wl-paste --watch cliphist store")
