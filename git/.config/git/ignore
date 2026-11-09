@@ -11,8 +11,6 @@ lib/
 .classpath
 .settings/
 .factorypath
-**/bin/
-!**/.local/share/bin
 
 # Python
 .mypy_cache/
