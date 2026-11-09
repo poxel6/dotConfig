@@ -10,14 +10,14 @@ hl.monitor({
 hl.monitor({
 	output = "DP-2",
 	mode = "1920x1080@60",
-	position = "auto",
+	position = "0x0",
 	scale = "auto",
 })
 
 hl.monitor({
 	output = "DP-3",
 	mode = "1600x900@60",
-	position = "1600x0",
+	position = "1920x200",
 	scale = "auto",
 })
 
@@ -68,7 +68,6 @@ hl.config({
 			enabled = true,
 			height = 2,
 			gradients = false,
-			font_size = 1,
 			indicator_height = 2,
 			text_color = "rgba(ffffff00)",
 			col = {
@@ -139,6 +138,7 @@ hl.config({
 		kb_model = "",
 		kb_options = "grp:rwin_toggle",
 		kb_rules = "",
+		numlock_by_default = true,
 
 		follow_mouse = 1,
 		force_no_accel = 1,
